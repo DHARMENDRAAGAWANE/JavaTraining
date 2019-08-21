@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Collectors;
-
 import com.mindtraits.Course;
 import com.mindtraits.Student;
 
@@ -271,6 +270,8 @@ public void studentMenu() throws ParseException, IOException{
 					
 				}
 				
+				collegeMenu();
+				
 				break;
 			   
 		case 2:	
@@ -291,7 +292,7 @@ public void studentMenu() throws ParseException, IOException{
 //
 //				for(int i=0;i<students.size();i++) {
 //					
-//					if(name.equals(remove)) {
+//					if(students..equals(remove)) {
 //					
 //						students.remove(i);
 //						break;
@@ -420,20 +421,20 @@ public void courseMenu() throws ParseException, IOException{
 	   		
 			System.out.println("Remove Course");
 	   	   	System.out.println("*******************");   			
-			List<Course> courses = new ArrayList<Course>();
-	   		System.out.println("Enter Remove Name:");
-	   		String remove = sn.nextLine();
-	   		for(int i=0;i<courses.size();i++) {
-	   				
-	   			if(courses.get(i).equals(remove)) {
-	   				
-	   				courses.remove(i);
-	   				
-	   			}
-	   			
-	   		}
-	   		System.out.println("Removed Succesfully");
-			
+//			List<Course> courses = new ArrayList<Course>();
+//	   		System.out.println("Enter Remove Name:");
+//	   		String remove = sn.nextLine();
+//	   		for(int i=0;i<courses.size();i++) {
+//	   				
+//	   			if(courses.get(i).equals(remove)) {
+//	   				
+//	   				courses.remove(i);
+//	   				
+//	   			}
+//	   			
+//	   		}
+//	   		System.out.println("Removed Succesfully");
+
 			courseMenu();
 
 	   	   	break;
@@ -460,7 +461,7 @@ public void courseMenu() throws ParseException, IOException{
 			
 //	}
 //   		System.out.println("Update Successfully");
-//
+
 			courseMenu();
 
    	   		break;
