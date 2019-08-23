@@ -110,7 +110,6 @@ class CollegeSystem extends Header {
 				System.out.println("2.Search Course");
 				System.out.println("Enter Your Choice 1 to 2:");
 				int n = sn.nextInt();
-				
 				if(n==1) {
 						searchStudent(this);
 				}else if(n==2) {
@@ -327,10 +326,6 @@ class CollegeSystem extends Header {
 				System.out.println(student);
 				
 			}
-			else {
-				
-				System.out.println("Student not found");
-			}
 		}
 
 	}
@@ -355,13 +350,12 @@ class CollegeSystem extends Header {
 		if(course.getName().contains(searchcourse)) {
 				
 				System.out.println(course);
-				
-			}else {
-				
-				System.out.println("Course not found");
 			}
+
 		}
-}
+
+	}
+	
 	
 	/**
 	 * add student
@@ -460,9 +454,9 @@ class CollegeSystem extends Header {
 	 * add course
 	 * @param collegeSystem add the course from the collegeSystem
 	 */
-	Scanner sr = new Scanner (System.in);
 	public void addCourse(CollegeSystem collegeSystem) {
-		
+		@SuppressWarnings("resource")
+		Scanner sr = new Scanner (System.in);
 		Course course = new Course();
 		System.out.println("Enter Course Name:");
 		String name = sr.nextLine();
@@ -482,10 +476,11 @@ class CollegeSystem extends Header {
 	* remove course
 	* @param collegeSystem remove the course from the collegeSystem
 	*/
+	Scanner sr1 = new Scanner (System.in);
 	public void removeCourse(CollegeSystem collegeSystem) {
-
+		
 		System.out.println("Enter Remove Course Name:");
-	   	String removename = sr.nextLine(); 
+	   	String removename = sr1.nextLine(); 
 	   	
 		for(Iterator<Course> iterator = collegeSystem.courses.iterator(); iterator.hasNext();) {
 		Course course = iterator.next();
@@ -503,10 +498,10 @@ class CollegeSystem extends Header {
 	 * update course
 	 * @param collegeSystem update the course from the collegeSystem
 	 */
+	Scanner sr2 = new Scanner (System.in);
 	public void updateCourse(CollegeSystem collegeSystem) {
-
 		System.out.println("Enter Update Course Name:");
-		String updatename = sr.nextLine();
+		String updatename = sr2.nextLine();
 		
 		ListIterator<Course> listIterator = collegeSystem.courses.listIterator();			
 			
@@ -516,7 +511,7 @@ class CollegeSystem extends Header {
 
 			if(course.getName().equalsIgnoreCase(updatename)){
 				System.out.println("Enter the New Course Name:");
-				String newcoursename = sr.nextLine();
+				String newcoursename = sr2.nextLine();
 				course.setName(newcoursename);
 			}
 		}
