@@ -1,5 +1,6 @@
 package com.mindtraits;
 
+
 import java.io.Serializable;
 
 public class Course implements Serializable {
@@ -66,6 +67,9 @@ public class Course implements Serializable {
 				+ duration + "]";
 	}
 	
+	
 }
+
+
 
 	

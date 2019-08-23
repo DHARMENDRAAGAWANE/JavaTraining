@@ -30,7 +30,7 @@ public class Student implements Serializable {
 	}
 	
 	/**
-	 * @return the dob
+	 * @return the date of birth
 	 */
 	
 	public Date getDob() {
@@ -64,5 +64,6 @@ public class Student implements Serializable {
 	@Override
 	public String toString() {
 		return "Student [name=" + name + ", dob=" + dob + ", Course=" + course + "]";
+
 	}
 }
