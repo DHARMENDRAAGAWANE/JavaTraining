@@ -41,13 +41,10 @@ public class CollegeSystemTest {
 
 	@Test
 	public void testAddCourseCollegeSystem() {
+		
 		CollegeSystem collegeSystem = new CollegeSystem();
-		Course course = new Course();
-		course.getName();
-		course.getMajor();
-		course.getDuration();
 		collegeSystem.addCourse(collegeSystem);
-		assertEquals(course,collegeSystem);
+		assertEquals();
 		fail("Not yet implemented");
 	}
 

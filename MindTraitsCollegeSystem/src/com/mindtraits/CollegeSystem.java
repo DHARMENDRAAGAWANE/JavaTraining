@@ -134,6 +134,7 @@ class CollegeSystem extends Header {
 			
 				break;
 		case 4:
+			
 	        	System.exit(choice);
 	        
 	        	break;
@@ -208,7 +209,32 @@ class CollegeSystem extends Header {
 				Header.Head();
 				System.out.println("Update Student");
 			   	System.out.println("*******************");
-				updateStudent(this);
+			   	System.out.println("1.Update Student Name:");
+			   	System.out.println("2.Update Student DOB:");
+			   	System.out.println("Enter Your Choice 1 to 2:");
+			   
+			   	int choice1 = 0;
+				int count1 = 0;
+				while(count1==0){
+					System.out.println("Enter Your choice 1 to 2:");
+					choice = sn.nextInt();
+				if(choice1 < 3){
+					count1++;
+				}else{
+					 System.out.println("Invalid Choice");
+				} 
+				
+			}
+				switch(choice1) {
+				case 1:
+						updateStudentName(this);
+						break;
+				case 2:
+						updateStudentDob(this);
+						break;
+
+				}
+				
 	   	   		studentMenu();
 	   	   	
 				break;
@@ -428,24 +454,50 @@ class CollegeSystem extends Header {
 	 * @param collegeSystem update remove the student from the collegeSystem
 	 */
 	
-	public void updateStudent(CollegeSystem collegeSystem) {
+	public void updateStudentName(CollegeSystem collegeSystem) {
 		
 		System.out.println("Enter Update Student Name:");
 		String updatename = sc.nextLine();
-		
 		ListIterator<Student> listIterator = collegeSystem.students.listIterator();			
 
 			while(listIterator.hasNext()) {
 				
 				Student student = listIterator.next();
 
-			if(student.getName().equalsIgnoreCase(updatename)){
-				System.out.println("Enter the New Student Name:");
-				String newstudentname = sc.nextLine();
-				student.setName(newstudentname);
+				if(student.getName().equalsIgnoreCase(updatename)){
+					System.out.println("Enter the New Student Name:");
+					String newstudentname = sc.nextLine();
+					student.setName(newstudentname);
+				}
 			}
-		}
 	
+			System.out.println("Updated Successfully");
+		   	System.out.println(collegeSystem.students);
+		
+}
+	public void updateStudentDob(CollegeSystem collegeSystem) throws ParseException {
+
+		System.out.println("Enter Update Studnet DOB:");
+		String updatedob = sc.nextLine();
+		String pattern = "yyyy-MM-dd";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		Date date1 = simpleDateFormat.parse(updatedob);
+		ListIterator<Student> listIterator = collegeSystem.students.listIterator();
+		
+			while(listIterator.hasNext()) {
+			
+				Student student = listIterator.next();
+
+				if(student.getDob().equals(date1)){
+					System.out.println("Enter the New Student DOB:");
+					String newdob = sc.nextLine();
+					String pattern1 = "yyyy-MM-dd";
+					SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat(pattern1);
+					Date date2 = simpleDateFormat1.parse(newdob);
+					student.setDob(date2);
+				}
+			}
+			
 			System.out.println("Updated Successfully");
 		   	System.out.println(collegeSystem.students);
 		
