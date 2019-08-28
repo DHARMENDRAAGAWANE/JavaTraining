@@ -44,6 +44,7 @@ public class CollegeSystemTest {
 		
 		CollegeSystem collegeSystem = new CollegeSystem();
 		collegeSystem.addCourse(collegeSystem);
+        System.out.println("vignesh");
 //		fail("Not yet implemented");
 	}
 
