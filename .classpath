@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="JunitProjects/src"/>
+	<classpathentry kind="src" path="MindTraitsCollegeSystem/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="MindTraitsCollegeSystem/bin"/>
+</classpath>

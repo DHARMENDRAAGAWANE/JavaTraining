@@ -8,32 +8,34 @@ import org.junit.Test;
 
 public class CollegeSystemTest {
 
-//	@Test
-//	public void testSearchStudent() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testSearchCourse() {
-//		fail("Not yet implemented");
-//	}
-//
+	@Test
+	public void testSearchStudent() {
+		
+		CollegeSystem collegeSystem = new CollegeSystem();
+		collegeSystem.searchStudent(collegeSystem);
+		assertEquals(collegeSystem.getStudents(), collegeSystem.students);
+	}
+
+	@Test
+	public void testSearchCourse() {
+		
+		CollegeSystem collegeSystem = new CollegeSystem();
+		collegeSystem.searchCourse(collegeSystem);
+		assertEquals(collegeSystem.getCourses(), collegeSystem.courses);
+	}
+
 //	@Test
 //	public void testAddStudentCollegeSystem() throws ParseException {
 //		CollegeSystem collegeSystem = new CollegeSystem();
-//		Student student = new Student();
-//		student.getName();
 //		collegeSystem.addStudent(collegeSystem);
-//		assertEquals(0,true);
-//		
-//		//fail("Not yet implemented");
+//		assertEquals(collegeSystem.getStudents().size(),1);
 //	}
-//
+	
 //	@Test
 //	public void testRemoveStudent() {
 //		fail("Not yet implemented");
 //	}
-//
+	
 //	@Test
 //	public void testUpdateStudent() {
 //		fail("Not yet implemented");
@@ -44,18 +46,22 @@ public class CollegeSystemTest {
 		
 		CollegeSystem collegeSystem = new CollegeSystem();
 		collegeSystem.addCourse(collegeSystem);
-        System.out.println("vignesh");
-//		fail("Not yet implemented");
+		assertEquals(collegeSystem.getCourses().size(), 1);
 	}
 
 //	@Test
 //	public void testRemoveCourse() {
-//		fail("Not yet implemented");
-//	}
-//
+//		
+//		CollegeSystem collegeSystem = new CollegeSystem();
+//		collegeSystem.removeCourse(collegeSystem);
+//		assertEquals(collegeSystem.getCourses(), collegeSystem.courses);
+//		}
+//	
 //	@Test
 //	public void testUpdateCourse() {
-//		fail("Not yet implemented");
+//		CollegeSystem collegeSystem = new CollegeSystem();
+//		collegeSystem.updateCourse(collegeSystem);
+//		assertEquals(collegeSystem.getCourses(), collegeSystem.courses);
 //	}
 
 }

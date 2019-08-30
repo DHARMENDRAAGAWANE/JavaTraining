@@ -1,6 +1,11 @@
 package com.mindtraits;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,6 +15,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Optional;
 import java.util.Scanner;
+
 import com.mindtraits.Course;
 import com.mindtraits.Student;
 
@@ -22,11 +28,38 @@ import com.mindtraits.Student;
  *
  */
 
-class CollegeSystem extends Header {
+class CollegeSystem extends Header implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Scanner sn = new Scanner(System.in);
 	List<Student> students = new ArrayList<Student>();
 	List<Course> courses = new ArrayList<Course>();
+	
+	public CollegeSystem(){
+		
+		try{
+			System.out.println("Students Details:");
+			
+			@SuppressWarnings("resource")
+			ObjectInputStream college1 = new ObjectInputStream(new FileInputStream("Student.txt"));
+			System.out.println(college1.readObject());
+			
+			System.out.println("Courses Details:");
+
+			@SuppressWarnings("resource")
+			ObjectInputStream college2 = new ObjectInputStream(new FileInputStream("Course.txt"));
+			System.out.println(college2.readObject());
+
+
+		}catch(Exception e){
+			
+			e.printStackTrace();
+		}
+		
+	}
 	
 	/** 
 	 * @return the course
@@ -135,7 +168,29 @@ class CollegeSystem extends Header {
 				break;
 		case 4:
 			
-	        	System.exit(choice);
+				try{
+					   
+					FileOutputStream fileOutputStream1 = new FileOutputStream("Student.txt");
+			        ObjectOutputStream objectOutputStream1 = new ObjectOutputStream(fileOutputStream1);
+			        objectOutputStream1.writeObject(this.students);
+			        objectOutputStream1.close();
+			        fileOutputStream1.close();
+			        
+			        
+					FileOutputStream fileOutputStream2 = new FileOutputStream("Course.txt");
+			        ObjectOutputStream objectOutputStream2 = new ObjectOutputStream(fileOutputStream2);
+			        objectOutputStream2.writeObject(this.courses);
+			        objectOutputStream2.close();
+			        fileOutputStream2.close();
+			        
+			  
+			        System.out.println("Saved File Successfully.....");
+					System.exit(choice);
+					
+				}catch(Exception e){
+					
+					e.printStackTrace();
+				}
 	        
 	        	break;
 	        
@@ -209,15 +264,14 @@ class CollegeSystem extends Header {
 				Header.Head();
 				System.out.println("Update Student");
 			   	System.out.println("*******************");
-			   	System.out.println("1.Update Student Name:");
-			   	System.out.println("2.Update Student DOB:");
-			   	System.out.println("Enter Your Choice 1 to 2:");
-			   
+			   	System.out.println("1.Update Student Name");
+			   	System.out.println("2.Update Student DOB");
+			   	
 			   	int choice1 = 0;
 				int count1 = 0;
 				while(count1==0){
 					System.out.println("Enter Your choice 1 to 2:");
-					choice = sn.nextInt();
+					choice1 = sn.nextInt();
 				if(choice1 < 3){
 					count1++;
 				}else{
@@ -226,18 +280,21 @@ class CollegeSystem extends Header {
 				
 			}
 				switch(choice1) {
-				case 1:
-						updateStudentName(this);
-						break;
+				
+				case 1: 
+					    updateStudentName(this);
+					    
+					    break;
 				case 2:
 						updateStudentDob(this);
+						
 						break;
-
+						
 				}
 				
 	   	   		studentMenu();
-	   	   	
-				break;
+	   	   		
+	   	   		break;
 	   	   		
 		case 4:
 				//back to MainMenu
@@ -252,10 +309,8 @@ class CollegeSystem extends Header {
 
 	   			System.out.println("Invalid Choice");
 			
-			
-			
-		}
 	}
+}
 
 	/**
 	 * course MainMenu
