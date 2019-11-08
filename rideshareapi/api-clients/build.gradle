@@ -1,0 +1,39 @@
+plugins {
+   id 'java'
+   id "org.hidetake.swagger.generator" version "2.18.1"
+}
+repositories {
+		maven {	
+          url "https://nexus.delta.com/repository/maven-public/"
+    }
+}
+
+dependencies {
+ compile('org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+	
+   compile 'io.swagger:swagger-annotations:1.5.10'
+    swaggerCodegen 'io.swagger:swagger-codegen-cli:2.2.3'
+    
+}
+swaggerSources {
+        
+     rideShare {
+        inputFile = file("$projectDir/yaml/rideShare.yaml")
+
+        code {	
+            language = 'spring'
+            configFile = file('rideShare.json')
+            components = ['models','apis']
+           // dependsOn validation
+        }
+    }
+    
+}
+
+
+
+compileJava.dependsOn swaggerSources.rideShare.code
+sourceSets.main.java.srcDir "${swaggerSources.rideShare.code.outputDir}/src/main/java"
+sourceSets.main.resources.srcDir "${swaggerSources.rideShare.code.outputDir}/src/main/resources"
