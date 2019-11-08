@@ -1,0 +1,85 @@
+<div class="panel">
+
+
+   <div class="titlelabel">
+      Carpool ride- I need a ride
+   </div>
+
+   <div>
+      <div style="width: 50%; float: left;">
+         <table>
+
+            <tr>
+               <div class="form-group row">
+                  <button disabled for="from" class="disabledbutton">From</button>
+                  <div class="col-8 divclass">
+
+                        <select type="text" class="col-5 textbox" name="from" id="from"
+                        [(ngModel)]="from" required>
+                        <option value="SMYRNA - PUBLIX">SMYRNA - PUBLIX</option>
+                        <option value="SANDY SPRINGS - TARGET">SANDY SPRINGS - TARGET</option>
+                        <option value="MIDTOWN - MARTA">MIDTOWN - MARTA</option>
+                        <option value="DELTA - GO" selected> DELTA - GO</option>
+                    </select>
+
+                     
+                  </div>
+               </div>
+            </tr>
+
+            <div class="form-group row">
+               <button disabled for="to" class="disabledbutton">To</button>
+               <div class="col-8 divclass">
+                     <select type="text" class="col-5 textbox" name="to" id="to"
+                     [(ngModel)]="to" required>
+                     <option value="SMYRNA - PUBLIX">SMYRNA - PUBLIX</option>
+                     <option value="SANDY SPRINGS - TARGET">SANDY SPRINGS - TARGET</option>
+                     <option value="MIDTOWN - MARTA">MIDTOWN - MARTA</option>
+                     <option value="DELTA - GO">DELTA - GO</option>
+                 </select>
+
+
+               </div>
+            </div>
+
+            <div class="form-group row">
+
+
+               
+               <button disabled for="time" class="disabledbutton">Time</button>
+               <div class="col-8 divclass">
+                  <input type="text" class="col-5 textbox" name="time" id="time" [(ngModel)]="time" name="time"
+                     required>
+               </div>
+            </div>
+
+
+
+            
+
+
+
+         </table>
+
+      </div>
+
+      <div style="float:right; width: 50%;">
+         <IMG SRC="../../assets/need_a_ride.gif">
+      </div>
+
+      <div>
+            <button class="backbutton" (click)="back()">
+                  Back
+               </button>
+         <button class="submitbutton" (click)="searchtrip()">
+            Request Ride
+         </button>
+      </div>
+  
+
+</div>
+
+
+
+
+

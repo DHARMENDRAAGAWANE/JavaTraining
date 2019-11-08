@@ -1,0 +1,69 @@
+
+
+
+ <div fxLayout="row" fxLayoutAlign="center center" class="login-main">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>RideShare</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form class="example-form">
+                <table class="example-full-width" cellspacing="0">
+                  <tr>
+                    <td>
+                      <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Username" [(ngModel)]="user.username" name="username" readonly>
+                      </mat-form-field>
+                    </td>
+                  </tr>
+                  <tr>
+                        <td>
+                          <mat-form-field class="example-full-width">
+                          <input matInput placeholder="FirstName" [(ngModel)]="user.firstName" name="firstName" readonly>
+                          </mat-form-field>
+                        </td>
+                      </tr>
+                      <tr>
+                            <td>
+                              <mat-form-field class="example-full-width">
+                              <input matInput placeholder="LastName" [(ngModel)]="user.lastName" name="lastName" readonly>
+                              </mat-form-field>
+                            </td>
+                          </tr>
+                          <tr>
+                                <td>
+                                  <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="email" [(ngModel)]="user.email" name="email" required>
+                                  </mat-form-field>
+                                </td>
+                              </tr>  
+                              <tr>
+                                    <td>
+                                      <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="phone" [(ngModel)]="user.phone" name="phone" required>
+                                      </mat-form-field>
+                                    </td>
+                                  </tr>     
+                                  <tr>
+                                      <td>
+                                        <mat-form-field class="example-full-width">
+                        
+                                          <mat-label>User Type</mat-label>
+                                          <select placeholder="userType" matNativeControl [(ngModel)]="user.type" name="usertype" required>
+                                            <option value="e">Employee</option>
+                                            <option value="v">Vendor</option>
+                        
+                                          </select>
+                                        </mat-form-field>
+                                      </td>
+                                    </tr>
+                        
+                  </table>
+              </form>
+              <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button (click)="register()" color="primary">Register</button>
+            </mat-card-actions>
+          </mat-card>
+         </div>

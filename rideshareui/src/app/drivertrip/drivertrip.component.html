@@ -1,0 +1,114 @@
+<div class="panel">
+
+
+    <div class="titlelabel">
+        Carpool ride- I am driving today
+    </div>
+
+    <div>
+        <div style="width: 50%; float: left;">
+
+            <table>
+
+                <div class="form-group row">
+                    <button disabled for="from" class="disabledbutton">Vehicle Plate</button>
+                    <div class="col-8 divclass">
+                            <input type readonly class="col-5 textbox" [(ngModel)]="trip.vehicle.licensePlateNum"
+                            name="licensePlateNum" id="licensePlateNum">
+                    </div>
+                </div>    
+                
+                
+                <tr>
+                    <div class="form-group row">
+                        <button disabled for="from" class="disabledbutton">From</button>
+                        <div class="col-8 divclass"> 
+                            <select type="text" class="col-5 textbox" name="from" id="from"
+                                [(ngModel)]="trip.fromLocation" required>
+                                <option value="SMYRNA - PUBLIX">SMYRNA - PUBLIX</option>
+                                <option value="SANDY SPRINGS - TARGET">SANDY SPRINGS - TARGET</option>
+                                <option value="MIDTOWN - MARTA">MIDTOWN - MARTA</option>
+                                <option value="DELTA - GO">DELTA - GO</option>
+                            </select>
+                        </div>
+                    </div>
+                </tr>
+
+                <div class="form-group row">
+                    <button disabled for="to" class="disabledbutton">To</button>
+                    <div class="col-8 divclass">
+                            <select type="text" class="col-5 textbox" name="to" id="to"
+                            [(ngModel)]="trip.toLocation" required>
+                            <option value="DELTA - GO">DELTA - GO</option>
+                            <option value="SMYRNA - PUBLIX">SMYRNA - PUBLIX</option>
+                            <option value="SANDY SPRINGS - TARGET">SANDY SPRINGS - TARGET</option>
+                            <option value="MIDTOWN - MARTA">MIDTOWN - MARTA</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <button disabled for="time" class="disabledbutton">Time</button>
+                    <div class="col-8 divclass">
+                        <input type="text" class="col-5 textbox" name="time" id="time" [(ngModel)]="trip.time" name="time"
+                            required>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <button disabled for="time" class="disabledbutton">Capacity</button>
+                    <div class="col-8 divclass">
+                        <input type="text" class="col-5 textbox" readonly [(ngModel)]="trip.vehicle.passengerCapacity"
+                            name="Capacity" required>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <button disabled for="time" class="disabledbutton">Availability</button>
+                    <div class="col-8 divclass">
+                        <input type="text" class="col-5 textbox" name="time" id="time" [(ngModel)]="trip.availbleSeatSpace"
+                            name="Availability" required>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group row">
+                    <button disabled for="contact" class="disabledbutton">Name</button>
+                    <div class="col-8 divclass">
+                        <input type readonly class="col-5 textbox" [(ngModel)]="trip.user.firstName">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group row">
+                    <button disabled for="contact" class="disabledbutton">Contact</button>
+                    <div class="col-8 divclass">
+                        <input type="text" readonly class="col-5 textbox" [(ngModel)]="trip.user.phone" >
+                    </div>
+                </div>
+
+
+
+            </table>
+
+        </div>
+
+        <div style="float:right; width: 50%; margin-top: -150px">
+            <IMG SRC="../../assets/driving_animation.gif">
+        </div>
+
+        <div>
+                <button class="backbutton" (click)="home()">
+                        Home
+                </button>
+            <button class="submitbutton" (click)="createTrip()">
+                Let other's know
+            </button>
+        </div>
+    </div>
+
+</div>

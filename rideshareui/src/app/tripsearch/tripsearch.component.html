@@ -1,0 +1,72 @@
+<div class="panel">
+
+
+   <div class="titlelabel">
+      {{this.message}}
+   </div>
+
+   <div>
+      <div style="width: 50%; float: left;">
+
+         <ng-template #elseBlock>No Ride for that time , Please look for alternative</ng-template>
+      </div>
+      <div *ngIf="show; else elseBlock" style="width: 50%; float: left;">
+
+         <table style="width: 100%; float: left;">
+            <tr>
+
+               <igx-radio *ngFor="let t of trips" name="tripid" [value]="t.id" [(ngModel)]="rideDetails.trip.id">
+                  <td>{{t.id}}</td>
+                  <td>{{t.fromLocation}}</td>
+                  <td>{{t.toLocation}}</td>
+                  <td>{{t.time}}</td>
+                  <td>{{t.fromLocation}}</td>
+
+               </igx-radio>
+
+            </tr>
+
+
+         </table>
+
+      </div>
+
+      <div style="float:right; width: 50%;">
+         <IMG SRC="../../assets/confirm_ride.gif">
+      </div>
+
+      <div style="float:left; width: 70%;">
+         <table>
+
+            <tr>
+               <td>
+
+
+                  <button class="submitbutton" (click)="back()">
+                     Home
+                  </button>
+
+               </td>
+               <td>
+
+                  <div *ngIf="show">
+
+
+                     <button class="submitbutton" (click)="book()">
+                        Confirm Ride
+                     </button>
+                  </div>
+               </td>
+            </tr>
+
+         </table>
+
+      </div>
+
+
+
+
+
+   </div>
+
+</div>

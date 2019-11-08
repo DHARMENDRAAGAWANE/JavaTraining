@@ -1,0 +1,63 @@
+<div class="panel">
+
+
+    <div class="titlelabel">
+        Congratulations - All set to drive
+    </div>
+
+    <div>
+        <div style="width: 50%; float: left;">
+
+            <table>
+
+                <div class="form-group row">
+                    <button disabled for="from" class="disabledbutton">Trip ID</button>
+                    <div class="col-8 divclass">
+                            <input type readonly class="col-5 textbox" [(ngModel)]="trip.id"
+                            name="licensePlateNum" id="licensePlateNum">
+                    </div>
+                </div>    
+                
+                
+                <tr>
+                    <div class="form-group row">
+                        <button disabled for="from" class="disabledbutton">From</button>
+                        <div class="col-8 divclass">
+                            <input type="text" class="col-5 textbox" name="from" id="from" [(ngModel)]="trip.fromLocation"
+                                name="fromLocation" required>
+                        </div>
+                    </div>
+                </tr>
+
+                <div class="form-group row">
+                    <button disabled for="to" class="disabledbutton">To</button>
+                    <div class="col-8 divclass">
+                        <input type="text" class="col-5 textbox" name="toLocation" id="toLocation" [(ngModel)]="trip.toLocation" name="toLocation" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <button disabled for="time" class="disabledbutton">Time</button>
+                    <div class="col-8 divclass">
+                        <input type="text" class="col-5 textbox" name="time" id="time" [(ngModel)]="trip.time" name="time"
+                            required>
+                    </div>
+                </div>
+
+
+            </table>
+
+        </div>
+
+        <div style="float:right; width: 50%; margin-top: -100px">
+            <IMG SRC="../../assets/ride_confirmed.gif">
+        </div>
+
+        <div>
+            <button class="submitbutton" (click)="home()">
+                Home
+            </button>
+        </div>
+    </div>
+
+</div>

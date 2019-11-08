@@ -1,0 +1,11 @@
+example-container {
+    display: flex;
+    flex-direction: column;
+    background-image: url('/assets/image/car.jpg');
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  html, body,example-container { height: 100%; background-image: url('/assets/image/car.jpg');}
