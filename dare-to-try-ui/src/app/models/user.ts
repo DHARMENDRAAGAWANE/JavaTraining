@@ -21,5 +21,5 @@ export class User {
     userType: string;
     status: string;
     modeOfContact: string;
-    secretKey: string;
+    token: string;
 }
