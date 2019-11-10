@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.mt.daretotry.entity.User;
 import com.mt.daretotry.entity.UserType;
-import com.mt.daretotry.repository.UserReposiotry;
+import com.mt.daretotry.repository.UserRepository;
 
 
 @SpringBootApplication
@@ -15,7 +15,7 @@ public class DareToTryApplication implements CommandLineRunner {
 
 	
 	@Autowired
-	UserReposiotry userReposiotry;
+	UserRepository userReposiotry;
 	public static void main(String[] args) {
 		SpringApplication.run(DareToTryApplication.class, args);
 	}
@@ -24,7 +24,7 @@ public class DareToTryApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		userReposiotry.deleteAll();
+		/*userReposiotry.deleteAll();
 
 		// save a couple of customers
 		userReposiotry.save(new User("Alice", "Smith",UserType.User));
@@ -47,7 +47,8 @@ public class DareToTryApplication implements CommandLineRunner {
 		System.out.println("--------------------------------");
 		for ( User customer: userReposiotry.findByLastName("Smith")) {
 			System.out.println(customer);
-		}
+		}*/
+		
 
 	}
 	
