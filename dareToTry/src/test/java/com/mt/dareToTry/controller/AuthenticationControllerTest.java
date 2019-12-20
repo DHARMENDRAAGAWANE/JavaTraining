@@ -1,6 +1,5 @@
 package com.mt.dareToTry.controller;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
