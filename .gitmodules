@@ -1,0 +1,3 @@
+[submodule "sonar-demo"]
+	path = sonar-demo
+	url = https://github.com/MindTraits/JavaTraining.git
