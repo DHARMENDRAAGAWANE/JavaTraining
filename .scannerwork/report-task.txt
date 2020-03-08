@@ -1,0 +1,6 @@
+projectKey=sonar-demo
+serverUrl=http://3.221.52.178:8080
+serverVersion=8.2.0.32929
+dashboardUrl=http://3.221.52.178:8080/dashboard?id=sonar-demo
+ceTaskId=AXC7qhNCjnNCdMcxF4om
+ceTaskUrl=http://3.221.52.178:8080/api/ce/task?id=AXC7qhNCjnNCdMcxF4om
