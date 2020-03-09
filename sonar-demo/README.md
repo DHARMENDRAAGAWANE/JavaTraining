@@ -34,15 +34,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 1. npm install tslint-sonarts --save-dev.
 2. npm install sonar-scanner --save-dev.
 3. create file sonar-project.properties at the root levl and have the following properties.
-sonar.host.url=http://3.221.52.178:8080/
-sonar.login=cb13f6bee71b56a3d930736254088c026d74d66a
-sonar.password=
-sonar.projectKey=sonar-demo
-sonar.projectName=sonar-demo
-sonar.projectVersion=1.0
-sonar.sourceEncoding=UTF-8
-sonar.sources=src
-sonar.exclusions=**/node_modules/**
-sonar.tests=src
-sonar.test.inclusions=**/*.spec.ts
-sonar.typescript.lcov.reportPaths=coverage/lcov.info
+sonar.host.url=http://3.221.52.178:8080/ .
+sonar.login=cb13f6bee71b56a3d930736254088c026d74d66a .
+sonar.password= .
+sonar.projectKey=sonar-demo .
+sonar.projectName=sonar-demo .
+sonar.projectVersion=1.0 . 
+sonar.sourceEncoding=UTF-8 .
+sonar.sources=src .
+sonar.exclusions=**/node_modules/** .
+sonar.tests=src .
+sonar.test.inclusions=**/*.spec.ts .
+sonar.typescript.lcov.reportPaths=coverage/lcov.info .
