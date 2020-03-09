@@ -31,9 +31,9 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Step to add sonarqube scanner into project
-1. npm install tslint-sonarts --save-dev
-2. npm install sonar-scanner --save-dev
-3. create file sonar-project.properties at the root levl and have the following properties
+1. npm install tslint-sonarts --save-dev.
+2. npm install sonar-scanner --save-dev.
+3. create file sonar-project.properties at the root levl and have the following properties.
 sonar.host.url=http://3.221.52.178:8080/
 sonar.login=cb13f6bee71b56a3d930736254088c026d74d66a
 sonar.password=
