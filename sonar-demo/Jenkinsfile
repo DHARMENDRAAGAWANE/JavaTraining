@@ -34,10 +34,11 @@ node {
     }
 
     stage('Test') {
-        withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
+  //      withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
+ withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
   dir("sonar-demo"){       
  sh 'ng test --progress=false --watch false'
-}
+  }
         }
         junit '**/test-results.xml'
     }
