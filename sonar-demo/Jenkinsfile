@@ -34,8 +34,8 @@ node {
     }
 
     stage('Test') {
-  //      withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
- withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
+ withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
+// withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
   dir("sonar-demo"){       
  sh 'ng test --watch=false --browsers=ChromeHeadless'
   }
