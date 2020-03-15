@@ -40,7 +40,7 @@ withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
  sh 'ng test --watch=false --browsers=ChromeHeadless'
   }
         }
-        junit '**/test-results.xml'
+        //junit '**/test-results.xml'
     }
 
     stage('Lint') {
