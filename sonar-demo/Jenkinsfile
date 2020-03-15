@@ -52,7 +52,7 @@ withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
     stage('Build') {
         milestone()
 dir("sonar-demo"){        
-sh 'ng build --prod --aot --sm --progress=false'
+sh 'ng build --prod --aot  --progress=false'
 }    }
 
     stage('Archive') {
