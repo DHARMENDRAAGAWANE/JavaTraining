@@ -43,11 +43,11 @@ node {
         //junit '**/test-results.xml'
     //}
 
-    stage('Lint') {
-       dir("jsoneditor"){
-        sh 'ng lint'
+    //stage('Lint') {
+      // dir("jsoneditor"){
+        //sh 'ng lint'
 }
-    }
+    //}
 
     stage("sonarqube"){
         dir("jsoneditor"){
