@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "sonar-demo": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "sonar-demo"
+    }
+  },
+  "defaultProject": "sonar-demo",
+  "cli": {
+    "analytics": "85116cca-09a3-4f71-83e0-c23d0cdd7131"
+  }
 }
