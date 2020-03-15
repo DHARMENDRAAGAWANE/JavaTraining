@@ -59,7 +59,7 @@ node {
     stage('Build') {
         milestone()
 dir("jsoneditor"){        
-sh 'ng build --prod --aot  --progress=false'
+sh 'ng build --prod'
 }    }
 
     /*stage('Archive') {
