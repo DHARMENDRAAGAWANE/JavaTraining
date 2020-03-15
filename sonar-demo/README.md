@@ -49,3 +49,15 @@ sonar.tests=src
 sonar.test.inclusions=**/*.spec.ts 
 sonar.typescript.lcov.reportPaths=coverage/lcov.info 
 ```
+## step to add chrome headless test
+```
+$ npm i -D puppeteer karma-chrome-launcher
+// karma.conf.js
+process.env.CHROME_BIN = require('puppeteer').executablePath()
+
+module.exports = function(config) {
+  config.set({
+    browsers: ['ChromeHeadless']
+  })
+}
+```
