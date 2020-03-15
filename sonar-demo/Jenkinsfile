@@ -40,7 +40,7 @@ node {
  sh 'ng test --progress=false --watch false'
   }
         }
-        junit '**/test-results.xml'
+        //junit '**/test-results.xml'
     }
 
     stage('Lint') {
