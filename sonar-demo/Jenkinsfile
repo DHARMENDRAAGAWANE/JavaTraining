@@ -49,6 +49,13 @@ withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
 }
     }
 
+    stage("sonarqube"){
+        dir("sonar-demo"){
+            sh 'npm run sonar'
+        }
+
+    }
+
     stage('Build') {
         milestone()
 dir("sonar-demo"){        
@@ -56,9 +63,11 @@ sh 'ng build --prod --aot  --progress=false'
 }    }
 
     stage('Archive') {
-       
+        dir("sonar-demo"){     
         sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
         archive 'dist.tar.gz'
+        }
+
     }
 
     stage('Deploy') {
