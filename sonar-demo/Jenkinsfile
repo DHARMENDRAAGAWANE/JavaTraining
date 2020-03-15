@@ -37,10 +37,10 @@ node {
   //      withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
  withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
   dir("sonar-demo"){       
- sh 'ng test-headless'
+ sh 'ng test --watch=false --browsers=ChromeHeadless'
   }
         }
-        //junit '**/test-results.xml'
+        junit '**/test-results.xml'
     }
 
     stage('Lint') {
