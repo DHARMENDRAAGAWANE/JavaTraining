@@ -1,0 +1,46 @@
+filter_tags:
+  - sbx #sandbox
+  - pipeline #enterprise pipeline
+
+openshift_cluster_content:
+- object: git-secret
+  content:
+  - name: "create git secret"
+    template: "{{ inventory_dir }}/../../.openshift/templates/git-secret.yml"
+    params: "{{ inventory_dir }}/../../.openshift/params/secret"
+- object: nexus-upload-token
+  content:
+  - name: "create nexus secret"
+    template: "{{ inventory_dir }}/../../.openshift/templates/nexus-upload-token.yml"
+    params: "{{ inventory_dir }}/../../.openshift/params/secret"
+- object: jenkins-delta
+  content:
+  - name: "deploy delta jenkins image"
+    template: openshift//delta-jenkins-v3-11
+    params: "{{ inventory_dir }}/../../.openshift/params/delta-jenkins"
+    namespace: ithackathon15-1-sbx
+    tags:
+      - sbx
+      - pipeline
+- object: builds
+  content:
+  - name: "deploy build to sandbox"
+    template: "{{ inventory_dir }}/../../.openshift/templates/build-sbx.yml"
+    params: "{{ inventory_dir }}/../../.openshift/params/build-sbx"
+    tags:
+      - sbx 
+- object: deployments
+  content:
+  - name: "deploy sbx environment"
+    template: "{{ inventory_dir }}/../../.openshift/templates/deploy.yml"
+    params: "{{ inventory_dir }}/../../.openshift/params/deploy-sbx"
+    tags:
+      - sbx      
+- object: route
+  content:
+  - name: "create route"
+    template: "{{ inventory_dir }}/../../.openshift/templates/nonprod-nontls-route.yml"
+    params: "{{ inventory_dir }}/../../.openshift/params/route-sbx"
+    tags:
+      - sbx
+      - pipeline

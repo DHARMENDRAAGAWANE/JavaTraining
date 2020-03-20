@@ -1,0 +1,104 @@
+@Library('openshift-library') _
+
+openshift.withCluster() {
+  String ocpApiServer = env.OCP_API_SERVER ? "${env.OCP_API_SERVER}" : "https://openshift.default.svc.cluster.local"
+  env.NAMESPACE = openshift.project()
+  env.TOKEN = readFile('/var/run/secrets/kubernetes.io/serviceaccount/token').trim()
+  env.OC_CMD = "oc --token=${env.TOKEN} --server=${ocpApiServer} --certificate-authority=/run/secrets/kubernetes.io/serviceaccount/ca.crt --namespace=${env.NAMESPACE}"
+  env.APP_NAME = "${env.JOB_BASE_NAME}".replaceAll(/-?pipeline-?/, '').replaceAll(/-?${env.NAMESPACE}-?/, '')
+  echo "Starting Pipeline for ${APP_NAME}..."
+  def projectBase = "${env.NAMESPACE}"
+
+  echo "projectBase is ${projectBase}"
+
+  env.SBX_ENV = "${projectBase}"
+  env.DEPLOYMENT_CONFIG = "dc/${env.APP_NAME}"
+  env.BUILD_ENV = "ithackathon15-1-sbx"
+  env.ARTIFACT_DIRECTORY = "build/libs"
+}
+
+
+def gradleCmd = './gradlew'    
+
+pipeline {
+
+  agent { label 'maven' }
+
+  stages {
+
+    stage('SCM Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh "chmod +x ./gradlew"
+        sh "${gradleCmd} clean build -xtest"
+      }
+    }
+
+    stage('Unit Test') {
+       steps {
+         sh "${gradleCmd} test"
+       }
+    }
+
+    stage('Coverage'){
+
+        steps{
+ 
+
+	            sh 'chmod +x ./gradlew'
+	                 sh './gradlew jacocoTestReport --info'	
+	                    publishHTML([		
+	                       allowMissing: false,		
+	                       alwaysLinkToLastBuild: false,		
+	                       keepAll: false,		
+	                       reportDir: 'notification-ms/build/reports/jacoco/test/html',		
+	                       reportFiles: 'index.html',		
+	                       reportName: 'RideShare Notification Coverage Report',		
+	                       reportTitles: 'RideShare Notification Coverage Report'	
+	                       ])
+	            
+
+       			 }
+
+    }
+
+    stage('SonarQube Code Analysis') {
+
+      steps {
+        
+            withSonarQubeEnv("Enterprise Sonarqube") {
+          sh "${gradleCmd} sonarqube -Dsonar.projectVersion=0.1"
+        	}
+
+      }
+     
+     }
+    
+/*     stage('Publish to Nexus') {
+      steps {
+        withCredentials([[$class: 'UsernamePasswordMultiBinding' , credentialsId: "${BUILD_ENV}-nexus-upload-token",
+                        usernameVariable: 'NEXUS_CREDENTIALS_USR', passwordVariable: 'NEXUS_CREDENTIALS_PSW']]){
+          sh "${gradleCmd} -Pnexus_version=${BUILD_NUMBER} publish"
+        }
+      }
+    }     */
+    
+    stage('Image Build') {
+          steps {
+            binaryBuild(projectName: "${BUILD_ENV}", buildConfigName: "${APP_NAME}", artifactsDirectoryName: "${ARTIFACT_DIRECTORY}")        
+          }
+    }
+
+    stage ("Verify Deployment") {
+        steps {
+            verifyDeployment(projectName: "${SBX_ENV}", targetApp: "${APP_NAME}")
+        }
+    } 
+    
+  }
+}

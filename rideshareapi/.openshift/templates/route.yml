@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Template
+labels:
+  template: route-secure-template
+metadata:
+  annotations:
+    description: route template for secure route
+    tags: route
+  name: secure-route
+objects:
+- kind: Route
+  apiVersion: v1
+  id: "${APPLICATION_NAME}-http"
+  metadata:
+    annotations:
+      openshift.io/cert-ops-status: need 
+    labels:
+      application: ${APPLICATION_NAME}
+    name: ${ROUTE_NAME}
+    namespace: ${NAMESPACE}
+  spec:
+    host: ${HOSTNAME_HTTP}
+    ports:
+      - port: 8080
+        protocol: TCP
+        targetPort: 8080
+    to:
+      kind: Service
+      name: ${APPLICATION_NAME}
+      weight: 100
+parameters:
+- description: The name for the application.
+  name: APPLICATION_NAME
+  required: true
+- description: The name of the route.
+  name: ROUTE_NAME
+  required: true
+  value : document-validation-ms
+- description: The namespace to deploy into
+  name: NAMESPACE
+  required: true
+- description: 'Custom hostname for http service route.  Leave blank for default hostname,
+    e.g.: <application-name>-<project>.<default-domain-suffix>'
+  name: HOSTNAME_HTTP
+  value : document-validation-ms.sbx2apps.paasdev.delta.com
+  

@@ -1,0 +1,4 @@
+APPLICATION_NAME=rideshareapi
+NAMESPACE=ithackathon15-1-sbx
+ROUTE_NAME=rideshareapi
+HOSTNAME_HTTP=rideshareapi.dvl1apps.paasdev.delta.com

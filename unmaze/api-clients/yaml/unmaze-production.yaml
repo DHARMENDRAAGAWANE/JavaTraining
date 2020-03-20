@@ -1,0 +1,2080 @@
+---
+swagger: "2.0"
+info:
+  description: This is a simple API
+  version: 1.0.0
+  title: Simple Inventory API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /MindTraitsSwagger/Unmaze/1.0.0
+tags:
+- name: production composition
+  description: All Production APIs
+- name: production
+  description: All Production APIs
+- name: material issue
+  description: All Material Issue APIs
+- name: fg production
+  description: All Fg Production APIs
+- name: material
+  description: All Material APIs
+- name: material transaction
+  description: All Material Transaction APIs
+- name: material unit
+  description: All Material Unit APIs
+- name: gst master
+  description: All gst APIs
+- name: legal entity
+  description: All Production APIs
+- name: branch
+  description: All Branch APIs
+- name: project
+  description: All project APIs
+- name: staff
+  description: All Staff APIs
+schemes:
+- https
+- http
+paths:
+  /productioncomposition:
+    get:
+      tags:
+      - production composition
+      summary: Find All Bill of Material
+      description: Returns a list of Bill of Material
+      operationId: getAllBillOfMaterial
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProductionCompostion'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - production composition
+      summary: Add Bill of Material
+      description: Adds an item to the Bill of Material
+      operationId: addBillOfMaterial
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Bill of Material item to add
+        required: true
+        schema:
+          $ref: '#/definitions/ProductionCompostion'
+      responses:
+        "200":
+          description: Created Successfully
+        "400":
+          description: Bad Request
+  /productioncomposition/{billOfMaterialId}:
+    get:
+      tags:
+      - production composition
+      summary: Find Bill of Material By ID
+      description: Returns a Single Production
+      operationId: getBillOfMaterialById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: billOfMaterialId
+        in: path
+        description: ID of Bill of Material to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/ProductionCompostion'
+        "400":
+          description: Bad Request
+        "404":
+          description: Bill of Material ID Not Found
+    put:
+      tags:
+      - production composition
+      summary: Update an existing Bill of Material
+      description: Update an item to the Bill of Material
+      operationId: updateBillOfMaterial
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: billOfMaterialId
+        in: path
+        description: ""
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated Bill of Material object
+        required: true
+        schema:
+          $ref: '#/definitions/ProductionCompostion'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Bill of Material ID Not Found
+        "405":
+          description: Validation Exception
+    delete:
+      tags:
+      - production composition
+      summary: Delete an exixting Bill of Material
+      description: Delete an item to the Bill of Material
+      operationId: deleteBillOfMaterial
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: billOfMaterialId
+        in: path
+        description: ""
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Bill of Material ID Not Found
+  /production:
+    get:
+      tags:
+      - production
+      summary: Find All Production
+      description: Returns a list of Production
+      operationId: getAllProduction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Production'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - production
+      summary: Add Production
+      description: Adds an item to the production
+      operationId: addProduction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Production item to add
+        required: true
+        schema:
+          $ref: '#/definitions/Production'
+      responses:
+        "200":
+          description: Created Successfully
+        "400":
+          description: Bad Request
+  /production/{productionId}:
+    get:
+      tags:
+      - production
+      summary: Find Production By ID
+      description: Returns a Single Production
+      operationId: getProductionById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: productionId
+        in: path
+        description: ID of Production to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/Production'
+        "400":
+          description: Bad Request
+        "404":
+          description: Production ID Not Found
+    put:
+      tags:
+      - production
+      summary: Update an existing Production
+      description: Update an item to the production
+      operationId: updateProduction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: productionId
+        in: path
+        description: ""
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated production object
+        required: true
+        schema:
+          $ref: '#/definitions/Production'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Production ID Not Found
+        "405":
+          description: Validation Exception
+    delete:
+      tags:
+      - production
+      summary: Delete an exixting Production
+      description: Delete an item to the production
+      operationId: deleteProduction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: productionId
+        in: path
+        description: ""
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Production ID Not Found
+  /materialIssue:
+    get:
+      tags:
+      - material issue
+      summary: Finds all material issue
+      description: Returns a list of material issue
+      operationId: getAllMaterialIssue
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MaterialIssue'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - material issue
+      summary: add material issue
+      description: Add new material issue
+      operationId: addMaterialIssue
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: material object that needs to be added to the material issue
+        required: true
+        schema:
+          $ref: '#/definitions/MaterialIssue'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+  /materialIssue/{materialIsssueId}:
+    get:
+      tags:
+      - material issue
+      summary: Find material issue by ID
+      description: Returns a single material issue
+      operationId: getMaterialIssueById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: materialIsssueId
+        in: path
+        description: ID of material issue to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/MaterialIssue'
+        "400":
+          description: Bad Request
+        "404":
+          description: Material Issue Not Found
+    put:
+      tags:
+      - material issue
+      summary: Update an existing material issue
+      description: Update material issue
+      operationId: updateMaterialIssue
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: materialIsssueId
+        in: path
+        description: ""
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated material issue object
+        required: true
+        schema:
+          $ref: '#/definitions/MaterialIssue'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Material Issue Not Found
+        "405":
+          description: Validation Exception
+    delete:
+      tags:
+      - material issue
+      summary: Delete material issue
+      description: This can only be done by the logged in user.
+      operationId: deleteMaterialIssue
+      produces:
+      - application/json
+      parameters:
+      - name: materialIsssueId
+        in: path
+        description: ""
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Invalid Material Issue ID
+        "404":
+          description: Material Issue not found
+  /fgproduction:
+    get:
+      tags:
+      - fg production
+      summary: Finds all fg production
+      description: Returns a list of fg production
+      operationId: getAllFgProduction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/fgProduction'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - fg production
+      summary: add  fg production
+      description: Add new  fg production
+      operationId: addFgProduction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: fg production is added in fg production object
+        required: true
+        schema:
+          $ref: '#/definitions/fgProduction'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+  /fgproduction/{fgproductionId}:
+    get:
+      tags:
+      - fg production
+      summary: Find fgproduction by ID
+      description: Returns a single fgproduction
+      operationId: getfgproductionById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: fgproductionId
+        in: path
+        description: ID of fg production to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/fgProduction'
+        "400":
+          description: Bad Request
+        "404":
+          description: FG Production Not Found
+    put:
+      tags:
+      - fg production
+      summary: Update an existing fg production
+      description: Update fg production
+      operationId: updateFgProduction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: fgproductionId
+        in: path
+        description: ""
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated legal fg production object
+        required: true
+        schema:
+          $ref: '#/definitions/fgProduction'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Fg Production Not Found
+        "405":
+          description: Validation Exception
+    delete:
+      tags:
+      - fg production
+      summary: Delete fg production
+      description: This can only be done by the logged in user.
+      operationId: deleteFgProduction
+      produces:
+      - application/json
+      parameters:
+      - name: fgproductionId
+        in: path
+        description: ""
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Invalid Fg Production ID
+        "404":
+          description: Fg Production not found
+  /material:
+    get:
+      tags:
+      - material
+      summary: Find All Material
+      description: Returns a list of Material
+      operationId: getAllMaterial
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MaterialMaster'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - material
+      summary: add Material
+      description: Add new Material
+      operationId: addMaterial
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Adds an item to the Material
+        required: true
+        schema:
+          $ref: '#/definitions/MaterialMaster'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+  /material/{materialId}:
+    get:
+      tags:
+      - material
+      summary: Find Material By ID
+      description: Returns a Single Material
+      operationId: getMaterialById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: materialId
+        in: path
+        description: ID of Material to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/MaterialMaster'
+        "400":
+          description: Bad Request
+        "404":
+          description: Material ID Not Found
+    put:
+      tags:
+      - material
+      summary: Update an existing Material
+      description: Update an item to the Material
+      operationId: updateMaterial
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: materialId
+        in: path
+        description: ""
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated Material object
+        required: true
+        schema:
+          $ref: '#/definitions/MaterialMaster'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Material ID Not Found
+        "405":
+          description: Validation Exception
+    delete:
+      tags:
+      - material
+      summary: Delete an exixting Material
+      description: Delete an item to the Material
+      operationId: deleteMaterial
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: materialId
+        in: path
+        description: ""
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Material ID Not Found
+  /materialtransaction:
+    get:
+      tags:
+      - material transaction
+      summary: Find All Material Transaction
+      description: Returns a list of Material Transaction
+      operationId: getAllMaterialTransaction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MaterialTransaction'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - material transaction
+      summary: add Material Transaction
+      description: Add new Material Transaction
+      operationId: addMaterialTransaction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Adds an item to the Material Transaction
+        required: true
+        schema:
+          $ref: '#/definitions/MaterialTransaction'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+  /materialtransaction/{materialTransactionId}:
+    get:
+      tags:
+      - material transaction
+      summary: Find Material Transaction By ID
+      description: Returns a Single Material Transaction
+      operationId: getMaterialTransactionById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: materialTransactionId
+        in: path
+        description: ID of Transaction to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/MaterialTransaction'
+        "400":
+          description: Bad Request
+        "404":
+          description: Material Transaction ID Not Found
+    put:
+      tags:
+      - material transaction
+      summary: Update an existing Material Transaction
+      description: Update an item to the Material Transaction
+      operationId: updateMaterialTransaction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: materialTransactionId
+        in: path
+        description: ""
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated Material Transaction object
+        required: true
+        schema:
+          $ref: '#/definitions/MaterialTransaction'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Material Transaction ID Not Found
+        "405":
+          description: Validation Exception
+    delete:
+      tags:
+      - material transaction
+      summary: Delete an exixting Material Transaction
+      description: Delete an item to the Material Transaction
+      operationId: deleteMaterialTransaction
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: materialTransactionId
+        in: path
+        description: ""
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Material Transaction ID Not Found
+  /materialunit:
+    get:
+      tags:
+      - material unit
+      summary: Find All Material Unit
+      description: Returns a list of Material Unit
+      operationId: getAllMaterialUnit
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MaterialUnit'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - material unit
+      summary: add Material Unit
+      description: Add new Material Unit
+      operationId: addMaterialUnit
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Adds an item to the Material Unit
+        required: true
+        schema:
+          $ref: '#/definitions/MaterialUnit'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+  /materialunit/{materialUnitId}:
+    get:
+      tags:
+      - material unit
+      summary: Find Material Unit By ID
+      description: Returns a Single Material Unit
+      operationId: getMaterialUnitById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: materialUnitId
+        in: path
+        description: ID of material Unit to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/MaterialUnit'
+        "400":
+          description: Bad Request
+        "404":
+          description: Material Unit ID Not Found
+    put:
+      tags:
+      - material unit
+      summary: Update an existing Material Unit
+      description: Update an item to the Material Unit
+      operationId: updateMaterialUnit
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: materialUnitId
+        in: path
+        description: ""
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated Material Unit object
+        required: true
+        schema:
+          $ref: '#/definitions/MaterialUnit'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Material Unit ID Not Found
+        "405":
+          description: Validation Exception
+    delete:
+      tags:
+      - material unit
+      summary: Delete an exixting Material Unit
+      description: Delete an item to the Material Unit
+      operationId: deleteMaterialUnit
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: materialUnitId
+        in: path
+        description: ""
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Material Unit ID Not Found
+  /gstmaster:
+    get:
+      tags:
+      - gst master
+      summary: Finds all gstmaster
+      description: Returns a list of gstmaster
+      operationId: getAllGstMaster
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/GSTMaster'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - gst master
+      summary: add gstmaster
+      description: Add new gstmaster
+      operationId: addGSTMaster
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: gstmaster object that needs to be added to the gstmaster
+        required: true
+        schema:
+          $ref: '#/definitions/GSTMaster'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+  /gstmaster/{gstId}:
+    get:
+      tags:
+      - gst master
+      summary: Find gstmaster by ID
+      description: Returns a single gst master
+      operationId: getIdById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: gstId
+        in: path
+        description: ID of gst master to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/GSTMaster'
+        "400":
+          description: Bad Request
+        "404":
+          description: GST ID Not Found
+    put:
+      tags:
+      - gst master
+      summary: Update an existing gst master
+      description: Update gst master
+      operationId: updateGST
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: gstId
+        in: path
+        description: ""
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated gst master object
+        required: true
+        schema:
+          $ref: '#/definitions/GSTMaster'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: GST ID Not Found
+        "405":
+          description: Validation Exception
+  /legalentity:
+    get:
+      tags:
+      - legal entity
+      summary: Finds all legal entity
+      description: Returns a list of legal entity
+      operationId: getAllEntity
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Entity'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - legal entity
+      summary: add legal entity
+      description: Add new legal entity
+      operationId: addEntity
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: entity object that needs to be added to the Entity
+        required: true
+        schema:
+          $ref: '#/definitions/BranchMaster'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+  /legalentity/{legalEntityMasterId}:
+    get:
+      tags:
+      - legal entity
+      summary: Find legal entity by ID
+      description: Returns a single legal entity
+      operationId: getEntityById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: legalEntityMasterId
+        in: path
+        description: ID of legal entity to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/Entity'
+        "400":
+          description: Bad Request
+        "404":
+          description: Entity Not Found
+    put:
+      tags:
+      - legal entity
+      summary: Update an existing legal entity
+      description: Update legal entity
+      operationId: updateEntity
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: legalEntityMasterId
+        in: path
+        description: ""
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated legal entity object
+        required: true
+        schema:
+          $ref: '#/definitions/Entity'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Entity Not Found
+        "405":
+          description: Validation Exception
+    delete:
+      tags:
+      - legal entity
+      summary: Delete legal entity
+      description: This can only be done by the logged in user.
+      operationId: deleteEntity
+      produces:
+      - application/json
+      parameters:
+      - name: legalEntityMasterId
+        in: path
+        description: ""
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Invalid Entity ID
+        "404":
+          description: Entity not found
+  /branch:
+    get:
+      tags:
+      - branch
+      summary: Finds all branch
+      description: Returns a list of branch
+      operationId: getAllBranch
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BranchMaster'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - branch
+      summary: add branch
+      description: Add new branch
+      operationId: addBranch
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: branch object that needs to be added to the Branch
+        required: true
+        schema:
+          $ref: '#/definitions/BranchMaster'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+    put:
+      tags:
+      - branch
+      summary: Update an existing branch
+      description: Update branch
+      operationId: updateBranch
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Updated branch object
+        required: true
+        schema:
+          $ref: '#/definitions/BranchMaster'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Branch Not Found
+        "405":
+          description: Validation Exception
+  /branch/{branchMasterId}:
+    get:
+      tags:
+      - branch
+      summary: Find branch by ID
+      description: Returns a single branch
+      operationId: getBranchById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: branchMasterId
+        in: path
+        description: ID of branch to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/BranchMaster'
+        "400":
+          description: Bad Request
+        "404":
+          description: Branch Not Found
+    delete:
+      tags:
+      - branch
+      summary: Delete branch
+      description: This can only be done by the logged in user.
+      operationId: deleteBranch
+      produces:
+      - application/json
+      parameters:
+      - name: branchMasterId
+        in: path
+        description: ""
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Invalid branch Id
+        "404":
+          description: Branch not found
+  /project:
+    get:
+      tags:
+      - project
+      summary: Finds all project
+      description: Returns a list of project
+      operationId: getAllProject
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Project'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - project
+      summary: add project
+      description: Add new project
+      operationId: addProject
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: project object that needs to be added to the Project
+        required: true
+        schema:
+          $ref: '#/definitions/Project'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+  /project/{projectId}:
+    get:
+      tags:
+      - project
+      summary: Find project by ID
+      description: Returns a single project
+      operationId: getProjectIdById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: projectId
+        in: path
+        description: ID of project to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/Project'
+        "400":
+          description: Bad Request
+        "404":
+          description: Project Not Found
+    put:
+      tags:
+      - project
+      summary: Update an existing project
+      description: Update project
+      operationId: updateProject
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: projectId
+        in: path
+        description: ""
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated project object
+        required: true
+        schema:
+          $ref: '#/definitions/Project'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Project Not Found
+        "405":
+          description: Validation Exception
+    delete:
+      tags:
+      - project
+      summary: Delete Project
+      description: This can only be done by the logged in user.
+      operationId: deleteProject
+      produces:
+      - application/json
+      parameters:
+      - name: projectId
+        in: path
+        description: ""
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Project Not Found
+  /staff:
+    get:
+      tags:
+      - staff
+      summary: Finds all Staff
+      description: Returns a list of Staff
+      operationId: getAllStaff
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Staff'
+        "400":
+          description: Bad Request
+    post:
+      tags:
+      - staff
+      summary: add staff
+      description: Add new staff
+      operationId: addStaff
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: staff object that needs to be added to the staff
+        required: true
+        schema:
+          $ref: '#/definitions/Staff'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+  /staff/{staffId}:
+    get:
+      tags:
+      - staff
+      summary: Find staff by ID
+      description: Returns a single staff
+      operationId: getStaffIdById
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: staffId
+        in: path
+        description: ID of staff to return
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: '#/definitions/Staff'
+        "400":
+          description: Bad Request
+        "404":
+          description: Staff Not Found
+    put:
+      tags:
+      - staff
+      summary: Update an existing staff
+      description: Update staff
+      operationId: updateStaff
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: staffId
+        in: path
+        description: ""
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: Updated staff object
+        required: true
+        schema:
+          $ref: '#/definitions/Staff'
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Staff ID Not Found
+        "405":
+          description: Validation Exception
+    delete:
+      tags:
+      - staff
+      summary: Delete Staff
+      description: delete staff from the item
+      operationId: deleteStaff
+      produces:
+      - application/json
+      parameters:
+      - name: staffId
+        in: path
+        description: ""
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Success
+        "400":
+          description: Bad Request
+        "404":
+          description: Staff Not Found
+definitions:
+  ProductionCompostion:
+    type: object
+    required:
+    - cost
+    - inputMaterialId
+    - outputMaterialId
+    - outputUnit
+    - qty
+    - stdRate
+    - unitId
+    properties:
+      bill_of_materialId:
+        type: integer
+        example: 1
+        description: auto generated
+      outputMaterialId:
+        type: integer
+        example: 1
+        description: outputMaterial
+      outputUnit:
+        type: integer
+        example: 10
+        description: outputUnit
+      inputMaterialId:
+        type: integer
+        example: 1
+        description: inputMaterialId
+      unitId:
+        type: integer
+        example: 1
+        description: units
+      qty:
+        type: integer
+        example: 5
+        description: units
+      stdRate:
+        type: integer
+        example: 500
+        description: stdRate
+      cost:
+        type: integer
+        example: 2500
+        description: cost
+  Production:
+    type: object
+    required:
+    - actions
+    - branchId
+    - date
+    - productionId
+    - productionNo
+    - projectId
+    - status
+    properties:
+      productionId:
+        type: integer
+        example: 1
+        description: auto generated
+      date:
+        type: string
+        format: date-time
+        example: 11-12-2019T09:12:33.001Z
+        description: date
+      branchId:
+        type: integer
+        example: 1
+        description: branchId
+      projectId:
+        type: integer
+        example: 1
+        description: projectId
+      productionNo:
+        type: string
+        example: "1"
+        description: productionNo
+      status:
+        type: boolean
+        description: Active Status
+      actions:
+        type: string
+        description: actions
+  MaterialIssue:
+    type: object
+    required:
+    - date
+    - materialIssueId
+    - materialType
+    - productionId
+    - productionNo
+    - qty
+    - remarks
+    - unit
+    properties:
+      materialIssueId:
+        type: integer
+        example: 1
+        description: auto generated
+      date:
+        type: string
+        format: date-time
+        example: 11-12-2019T09:12:33.001Z
+        description: date
+      productionId:
+        type: integer
+        example: 1
+        description: productionId
+      productionNo:
+        type: integer
+        example: 1
+        description: productionNo
+      materialType:
+        type: integer
+        example: 2
+        description: materialType
+      unit:
+        type: integer
+        example: 1
+        description: unit
+      qty:
+        type: integer
+        example: 1
+        description: qty
+      remarks:
+        type: integer
+        example: remarks required
+        description: remarks
+  fgProduction:
+    type: object
+    required:
+    - date
+    - fgproductionId
+    - materialType
+    - productionNo
+    - qty
+    - remarks
+    - unit
+    properties:
+      fgproductionId:
+        type: integer
+        example: 1
+        description: auto generated
+      date:
+        type: string
+        format: date-time
+        example: 11-12-2019T09:12:33.001Z
+        description: date
+      productionNo:
+        type: integer
+        example: 1
+        description: productionNo
+      materialType:
+        type: integer
+        example: 2
+        description: materialType
+      unit:
+        type: integer
+        example: 1
+        description: unit
+      qty:
+        type: integer
+        example: 1
+        description: qty
+      remarks:
+        type: integer
+        example: remarks required
+        description: remarks
+  MaterialMaster:
+    type: object
+    required:
+    - accountMasterId
+    - applicableTax
+    - basicSellingPrice
+    - bcdPercent
+    - cecPercent
+    - cessRate
+    - cessTypeId
+    - currentQty
+    - cvdPercent
+    - gstPercent
+    - hsnCode
+    - initialQty
+    - itcPercent
+    - itcTypeId
+    - materialCategoryId
+    - materialId
+    - materialName
+    - materialTypeId
+    - materialUnitId
+    - otherDutyPercent
+    - pdPercent
+    - scvdPercent
+    - specificDutyPerUnit
+    - taxTypeId
+    - vatPercent
+    properties:
+      materialId:
+        type: integer
+        example: 1
+        description: auto generated
+      materialName:
+        type: string
+        example: Tshirt
+        description: materialName
+      materialCategoryId:
+        type: integer
+        example: 2
+        description: materialCategoryId
+      materialUnitId:
+        type: integer
+        example: 3
+        description: materialUnitId
+      materialTypeId:
+        type: integer
+        example: 1
+        description: materialTypeId
+      hsnCode:
+        type: integer
+        example: 12345
+        description: hsnCode
+      initialQty:
+        type: integer
+        example: 300
+        description: initialQty
+      currentQty:
+        type: integer
+        example: 280
+        description: currentQty
+      accountMasterId:
+        type: integer
+        example: 2
+        description: accountMasterId
+      taxTypeId:
+        type: integer
+        example: 1
+        description: taxTypeId
+      vatPercent:
+        type: integer
+        description: taxTypeId
+      gstPercent:
+        type: integer
+        example: 8
+        description: gstPercent
+      cessTypeId:
+        type: integer
+        example: 1
+        description: cessTypeId
+      cessRate:
+        type: integer
+        example: "3.25"
+        description: cessRate
+      itcTypeId:
+        type: integer
+        example: 1
+        description: itcTypeId
+      itcPercent:
+        type: integer
+        example: 2
+        description: itcPercent
+      bcdPercent:
+        type: integer
+        example: 2
+        description: bcdPercent
+      pdPercent:
+        type: integer
+        example: 3
+        description: pdPercent
+      cvdPercent:
+        type: integer
+        example: 4
+        description: cvdPercent
+      cecPercent:
+        type: integer
+        example: 5
+        description: cecPercent
+      scvdPercent:
+        type: integer
+        example: 6
+        description: scvdPercent
+      specificDutyPerUnit:
+        type: integer
+        example: 7
+        description: specificDutyPerUnit
+      otherDutyPercent:
+        type: integer
+        example: 0
+        description: otherDutyPercent
+      basicSellingPrice:
+        type: integer
+        example: 5000
+        description: basicSellingPrice
+      applicableTax:
+        type: integer
+        example: 100
+        description: applicableTax
+  MaterialTransaction:
+    type: object
+    required:
+    - batchNo
+    - billId
+    - branchId
+    - creditNoteId
+    - date
+    - debitNoteId
+    - fifoRate
+    - goodRecpitNoteId
+    - invoiceId
+    - materialId
+    - materialTransactionId
+    - materialTransactionTypeId
+    - outputProductionId
+    - productionId
+    - qty
+    - remarks
+    - value
+    properties:
+      materialTransactionId:
+        type: integer
+        example: 1
+        description: materialTransactionId
+      date:
+        type: string
+        format: date-time
+        example: 11-12-2019T09:12:33.001Z
+        description: date
+      branchId:
+        type: integer
+        example: 2
+        description: branchId
+      materialId:
+        type: integer
+        example: 1
+        description: materialId
+      materialTransactionTypeId:
+        type: integer
+        example: 3
+        description: materialTransactionTypeId
+      invoiceId:
+        type: integer
+        example: 3
+        description: invoiceId
+      billId:
+        type: integer
+        example: 3
+        description: billId
+      creditNoteId:
+        type: integer
+        example: 3
+        description: creditNoteId
+      debitNoteId:
+        type: integer
+        example: 3
+        description: debitNoteId
+      productionId:
+        type: integer
+        description: productionId
+      outputProductionId:
+        type: integer
+        description: outputProductionId
+      goodRecpitNoteId:
+        type: integer
+        description: goodRecpitNoteId
+      batchNo:
+        type: integer
+        example: 21234
+        description: batchNo
+      qty:
+        type: integer
+        example: 5
+        description: qty
+      fifoRate:
+        type: integer
+        example: 100000
+        description: fifoRate
+      value:
+        type: integer
+        example: 100000000
+        description: value
+      remarks:
+        type: string
+        example: transaction successfull
+        description: remarks
+  MaterialUnit:
+    type: object
+    required:
+    - materialUnitId
+    - materialUnitName
+    properties:
+      materialUnitId:
+        type: integer
+        example: 1
+        description: materialUnitId
+      materialUnitName:
+        type: string
+        example: pcs
+        description: materialUnitName
+  GSTMaster:
+    type: object
+    required:
+    - gstId
+    - gstNo
+    - name
+    - panId
+    - validDate
+    properties:
+      gstId:
+        type: integer
+        example: 1
+        description: auto generated
+      gstNo:
+        type: string
+        example: 22ABCDE1234F1Z5
+        description: gstNo
+      name:
+        type: string
+        example: vicky
+        description: name
+      panId:
+        type: integer
+        example: 1
+        description: panId
+      validDate:
+        type: string
+        format: date-time
+        example: 11-12-2019T09:12:33.001Z
+        description: date
+  Entity:
+    type: object
+    required:
+    - address
+    - countryId
+    - gstMasterId
+    - legalEntityMasterId
+    - legalEntityMasterName
+    - panMasterId
+    - pinCode
+    - remarks
+    - stateId
+    properties:
+      legalEntityMasterId:
+        type: integer
+        example: 1
+        description: auto generated
+      legalEntityMasterName:
+        type: string
+        example: studio green
+        description: legalEntityMasterName
+      gstMasterId:
+        type: integer
+        example: 22ABCED1234F1Z5
+        description: gstMasterId
+      panMasterId:
+        type: integer
+        example: BMNKA0007K
+        description: panMasterId
+      countryId:
+        type: integer
+        example: India
+        description: countryId
+      stateId:
+        type: integer
+        example: Tamil Nadu
+        description: stateId
+      address:
+        type: string
+        example: Chennai
+        description: address
+      pinCode:
+        type: integer
+        example: 600073
+        description: pinCode
+      remarks:
+        type: integer
+        example: remarks
+        description: remarks
+  BranchMaster:
+    type: object
+    required:
+    - address
+    - alternateContactName
+    - alternateContactNo
+    - branchMasterId
+    - branchMasterName
+    - country
+    - gstNo
+    - legalEntityId
+    - pincode
+    - primaryContactName
+    - primaryContactNo
+    - remarks
+    - state
+    properties:
+      branchMasterId:
+        type: integer
+        example: 1
+        description: auto generated
+      branchMasterName:
+        type: string
+        example: Dehradun Branch
+        description: Branch Name
+      legalEntityId:
+        type: integer
+        example: 1
+        description: Legal Entity Id - fk
+      gstNo:
+        type: string
+        example: 29ABCDE1234F2Z5
+        description: GST Numbee
+      country:
+        type: string
+        example: India
+        description: Country
+      state:
+        type: string
+        example: Uttrakhand
+        description: State
+      address:
+        type: string
+        example: STPI Dehradun, 248001
+        description: Address
+      pincode:
+        type: integer
+        example: 248001
+        description: Pincode
+      primaryContactName:
+        type: string
+        example: vignesh
+        description: Primary Contact Name
+      primaryContactNo:
+        type: number
+        example: 9.898989898E9
+        description: Primary Contact Number
+      alternateContactName:
+        type: string
+        example: Vicky
+        description: Alternate Contact Name
+      alternateContactNo:
+        type: number
+        example: 8.989898989E9
+        description: Alternate Contact Number
+      remarks:
+        type: string
+        example: Any Note
+        description: Remarks
+  Project:
+    type: object
+    required:
+    - branchId
+    - customerId
+    - projectId
+    - projectName
+    - remarks
+    - staffId
+    properties:
+      projectId:
+        type: integer
+        example: 1
+        description: auto generated
+      projectName:
+        type: string
+        example: Any Name
+        description: Project Name
+      branchId:
+        type: integer
+        example: 1
+        description: Branch ID
+      customerId:
+        type: integer
+        example: 1
+        description: Customer ID
+      staffId:
+        type: integer
+        example: 1
+        description: Staff Id
+      remarks:
+        type: integer
+        example: remarks
+        description: remarks
+  Staff:
+    type: object
+    required:
+    - ctc
+    - mobile
+    - staffId
+    - staffName
+    properties:
+      staffId:
+        type: integer
+        example: 1
+        description: auto generated
+      staffName:
+        type: string
+        example: vignesh
+        description: staffName
+      mobile:
+        type: string
+        example: "9689695689"
+        description: mobile
+      ctc:
+        type: integer
+        example: 500000
+        description: ctc

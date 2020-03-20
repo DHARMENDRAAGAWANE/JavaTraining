@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    url: jdbc:mysql://ridesharedb.ithackathon15-1-sbx.svc:3306/ridesharedb
+    username: userSPH
+    password: xy3JA83yGpjbb0dO
+    initialization-mode: never
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+      hibernate.type: trace
+java:
+  naming:
+    provider:
+      url: ldap://LDAP-DEV.delta.com:389
+    security:
+      principal: svcvmddev
+      credentials: mddevVMs
+      protocol: null
+      authentication: simple
+  factory:
+    initial: com.sun.jndi.ldap.LdapCtxFactory
+base: dc=delta,dc=rl,dc=delta,dc=com
+email: 
+  notification: 
+    url : http://notification-ms-ithackathon15-1-sbx.sbx2apps.paasdev.delta.com/notification/send
+    from : noreply@delta.com
+    rider: 
+      booking:
+        confirm:
+          subject: Trip Comfirmed
+          body: Hi there..Your Trip is Comfirmed with Driver Name - <name>(<ID>) , License Plate Number - <License>
+      cancel: 
+        confirm: 
+          subject: Trip Cancelled
+          body: Hi there...Your Trip is Cancelled
+    driver: 
+      trip: 
+        confirm: 
+          subject: Trip Created Successfully
+          body: Hi there..Your Trip is Created Successfully
+      booking:
+        confirm:
+          subject: Rider Confirmed with Your Trip
+          body: Hi there..<name>(<ID>) Confirmed a Trip with you

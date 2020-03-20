@@ -1,0 +1,188 @@
+<div class="panel">
+
+    <div class="titlelabel">
+        Tell us about your vehicle
+    </div>
+
+    <div>
+        <div style="width: 50%; float: left;">
+            <!--  <mat-card class="example-card"> -->
+            <table>
+                <tr>
+                    <div class="form-group row">
+                        <button disabled for="licensePlateNumlabel" class="disabledbutton">License Plate</button>
+                         <div class="col-8 divclass">
+                            <input type="text" class="col-5 textbox" name="licensePlateNum" id="licensePlateNum"
+                                [(ngModel)]="vehicle.licensePlateNum" required>
+                        </div>
+                    
+                    </div>
+                </tr>
+                <div class="form-group row">
+                    <button disabled for="passengerCapacity" class="disabledbutton">Seat Capacity</button>
+                    <div class="col-8 divclass">
+                        <select type="text" class="col-5 textbox" name="passengerCapacity" id="passengerCapacity"
+                            [(ngModel)]="vehicle.passengerCapacity"required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <button disabled for="luggageCapacity" class="disabledbutton">Bags Capacity</button>
+                    <div class="col-8 divclass">
+                        <select type="text" class="col-5 textbox" name="luggageCapacity" id="luggageCapacity"
+                            [(ngModel)]="vehicle.luggageCapacity" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <button disabled for="color" class="disabledbutton">Vehicle Color</button>
+                    <div class="col-8 divclass">
+                        <input type="text" class="col-5 textbox" name="color" id="color" [(ngModel)]="vehicle.color"
+                            required>
+                    </div>
+                </div>
+            <div class="form-group row">
+                <button disabled for="status" class="disabledbutton">Vehicle Status</button>
+                <div class="col-8 divclass">
+                    <select type="text" class="col-5 textbox" name="status" id="status" [(ngModel)]="vehicle.status"
+                        required>
+                        <option value="A">Active</option>
+                        <option value="I">Inactive</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form-group row">
+                    <button disabled for="type" class="disabledbutton">Vehicle Type</button>
+                    <div class="col-8 divclass">
+                        <select class="col-5 textbox" name="type" id="type" [(ngModel)]="vehicle.type"
+                            required>
+                            <option value="suv">SUV</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="coupe">Coupe</option>
+                            <option value="van">Van</option>
+                        </select>
+                    </div>
+                </div>
+            </table>
+        </div>
+
+        <div style="float:right; width: 50%; margin-top: 67px">
+            <IMG SRC="../../assets/registration_animation.gif">
+        </div>
+
+        <div>
+            <button class="backbutton" (click)="back()">
+                Back
+            </button>
+            <button class="submitbutton" (click)="registervehicle()">
+                Register vehicle
+            </button>
+        </div>
+
+    </div>
+</div>
+
+
+<!--     <tr>
+            <td>
+
+
+                <mat-form-field>
+                    <input matInput placeholder="licensePlateNum" [(ngModel)]="vehicle.licensePlateNum" required>
+                </mat-form-field>
+            </td>
+        </tr>
+        -->
+<!--     <tr>
+
+                    <td>
+                        <mat-form-field>
+                            <input matInput placeholder="passengerCapacity" [(ngModel)]="vehicle.passengerCapacity"
+                                required>
+                        </mat-form-field>
+
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td>
+
+
+                        <mat-form-field>
+                            <input matInput placeholder="luggageCapacity" [(ngModel)]="vehicle.luggageCapacity"
+                                required>
+                        </mat-form-field>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <mat-label> Status</mat-label>
+                            <select matNativeControl placeholder="color" [(ngModel)]="vehicle.color" required>
+                                <option value="red">RED</option>
+                                <option value="blue" selected>BLUE</option>
+                                <option value="white" selected>WHITE</option>
+                            </select>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <mat-label> Status</mat-label>
+                            <select matNativeControl placeholder="status" [(ngModel)]="vehicle.status" required>
+                                <option value="I">In Active</option>
+                                <option value="A" selected>Active</option>
+                            </select>
+                        </mat-form-field>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Vehicle Type</mat-label>
+                            <select placeholder="type" matNativeControl [(ngModel)]="vehicle.type" name="type" required>
+                                <option value="suv">Suv</option>
+                                <option value="sedan" selected>Sedan</option>
+                            </select>
+                        </mat-form-field>
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+                        <mat-card-actions>
+                            <button mat-raised-button (click)="registervehicle()" color="primary">Register
+                                Vehicle</button>
+                        </mat-card-actions>
+                    </td>
+                </tr> -->
+
+<!--  </mat-card> -->

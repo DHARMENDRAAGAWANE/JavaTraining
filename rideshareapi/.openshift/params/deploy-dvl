@@ -1,0 +1,8 @@
+APPLICATION_NAME=rideshareapi
+NAMESPACE=ithackathon15-1-sbx
+SA_NAME=jenkins
+SA_NAMESPACE=ithackathon15-1-sbx
+READINESS_RESPONSE=UP
+READINESS_PATH=/rideshareapi/health
+MEMORY_LIMIT=700Mi
+SPRING_PROFILE_ACTIVE=dvl

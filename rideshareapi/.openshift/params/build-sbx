@@ -1,0 +1,5 @@
+APPLICATION_NAME=rideshareapi
+NAMESPACE=ithackathon15-1-sbx
+SOURCE_REPOSITORY_URL=git@git.delta.com:ithackathon15/rideshareapi.git
+SOURCE_REPOSITORY_REF=master
+PIPELINE_SCRIPT=Jenkinsfile_sbx
