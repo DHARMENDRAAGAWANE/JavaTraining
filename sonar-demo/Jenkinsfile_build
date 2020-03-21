@@ -69,9 +69,12 @@ sh 'ng build --prod --aot  --progress=false'
         }
 
     }
+  
+  stage('nexus upload'){
+     dir("sonar-demo"){     
+         npm publish
+        }
+    
+  }
 
-    stage('Deploy') {
-        milestone()
-        echo "Deploying..."
-    }
 }
