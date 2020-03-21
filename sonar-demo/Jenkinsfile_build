@@ -24,14 +24,14 @@ node('node_1') {
         //currentBuild.displayName = "#${currentBuild.number}-${env.git_commit_id_short}"
     }
 
-    stage('NPM Install') {
-        withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-		dir("sonar-demo"){
-	    sh 'ls -rt'
-            sh 'npm install'
-		}
-        }
-    }
+ //   stage('NPM Install') {
+   //     withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
+		//dir("sonar-demo"){
+	   // sh 'ls -rt'
+       //     sh 'npm install'
+		//}
+      //  }
+    //}
 
     stage('Test') {
  //withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
