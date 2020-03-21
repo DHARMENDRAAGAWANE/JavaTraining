@@ -1,6 +1,6 @@
 {
   "name": "jsoneditor",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -55,5 +55,11 @@
     "tslint": "~5.11.0",
     "tslint-sonarts": "^1.9.0",
     "typescript": "~3.1.6"
+  },
+  "publishConfig": {
+    "registry": "http://3.89.89.126:8081/repository/npm-private/",
+    "auth": "bXQtdXNlcjptdC11c2Vy"
+
   }
+
 }
