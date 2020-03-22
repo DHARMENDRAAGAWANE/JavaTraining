@@ -27,7 +27,7 @@ node('node_1') {
     stage('NPM Install') {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
 		dir("sonar-demo"){
-	    sh 'ls -rt'
+	    //sh 'ls -rt'
             sh 'npm install'
 		}
         }
