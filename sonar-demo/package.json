@@ -41,6 +41,7 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "karma-phantomjs-launcher": "^1.0.4",
     "protractor": "~5.4.3",
     "puppeteer": "^2.1.1",
     "sonar-scanner": "^3.1.0",
@@ -48,5 +49,10 @@
     "tslint": "~5.18.0",
     "tslint-sonarts": "^1.9.0",
     "typescript": "~3.7.5"
-  }
+  },
+  "publishConfig": {
+      "registry": "http://3.89.89.126:8081/repository/npm-private/",
+      "auth": "bXQtdXNlcjptdC11c2Vy"
+  
+    }
 }
