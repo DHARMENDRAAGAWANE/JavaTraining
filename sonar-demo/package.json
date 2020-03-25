@@ -55,7 +55,5 @@
   "publishConfig": {
     "registry": "http://3.89.89.126:8081/repository/npm-private/",
     "_auth": "bXQtdXNlcjptdEAyMDIw"
-    
   }
 }
-
