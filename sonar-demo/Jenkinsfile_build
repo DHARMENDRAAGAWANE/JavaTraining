@@ -59,7 +59,7 @@ withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
     stage ("Versioning"){
         dir("sonar-demo"){
             sh 'npm version patch'
-            sh 'git push $GIT_BRANCH'
+            sh 'git push origin' $GIT_BRANCH
         }
     }
     stage('Build') {
