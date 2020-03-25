@@ -63,8 +63,9 @@ withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh  'git commit -m "version no increased"'
             sh 'git config --global user.email "manisnow@gmail.com"'
             sh 'git config --global user.name "manikandan"'
-            sh 'git push origin ' + env.BRANCH_NAME
+            
         }
+        sh 'git push origin ' + env.BRANCH_NAME
     }
     stage('Build') {
         milestone()
