@@ -61,11 +61,8 @@ withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh 'npm version patch'
             sh  'git add package.json package-lock.json'
             sh  'git commit -m "version number increased"'
-            sh 'git config --global user.email "manisnow@gmail.com"'
-            sh 'git config --global user.name "manikandan"'
-            
         }
-        sh 'git push'
+        sh 'git push origin HEAD:' + env.BRANCH_NAME
     }
     stage('Build') {
         milestone()
