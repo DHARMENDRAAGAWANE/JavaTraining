@@ -23,6 +23,10 @@ node('node_1') {
  id: 'userInput', message: 'Let\'s promote?', parameters: [
  [$class: 'TextParameterDefinition', defaultValue: 'latest', description: 'Version', name: 'ver'],
 ])
+
+def ver = userInput['ver']
+
+
     stage('Checkout') {
         //disable to recycle workspace data to save time/bandwidth
         deleteDir()
@@ -39,7 +43,7 @@ node('node_1') {
 
     try{
       echo "Deploying sonar-demo to SI Started"
-      sh 'ssh -q devops@103.129.98.172 /home/devops/devops/scripts/deployFromNexus.ksh sonar-demo ' +userInput["ver"] +' tgz'
+      sh 'ssh -q devops@103.129.98.172 /home/devops/devops/scripts/deployFromNexus.ksh sonar-demo ' +ver+' tgz'
 
     }catch (err){
       echo "[Failure] failed to deploy sonar-demo application in SI"
