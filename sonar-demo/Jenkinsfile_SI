@@ -24,7 +24,7 @@ node('node_1') {
  [$class: 'TextParameterDefinition', defaultValue: 'latest', description: 'Version', name: 'release'],
 ])
 
-def release = userInput['release']
+
 
 
     stage('Checkout') {
@@ -43,7 +43,7 @@ def release = userInput['release']
 
     try{
       echo "Deploying sonar-demo to SI Started"
-      sh 'ssh -q devops@103.129.98.172 /home/devops/devops/scripts/deployFromNexus.ksh sonar-demo ' +release+' tgz'
+      sh 'ssh -q devops@103.129.98.172 /home/devops/devops/scripts/deployFromNexus.ksh sonar-demo 0.0.6 tgz'
 
     }catch (err){
       echo "[Failure] failed to deploy sonar-demo application in SI"
