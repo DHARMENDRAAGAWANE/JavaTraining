@@ -3,7 +3,7 @@
 
 def userInput = input(
  id: 'userInput', message: 'Let\'s promote?', parameters: [
- [$class: 'TextParameterDefinition', defaultValue: 'latest', description: 'Version', name: 'version']
+ [$class: 'TextParameterDefinition', defaultValue: 'latest', description: 'Version', name: 'version'],
 ])
 echo ("Version: "+userInput['version'])
 
