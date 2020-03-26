@@ -65,7 +65,7 @@ withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
             sh 'git config --global user.name "manikandan"'
             
         }
-        sh 'git push origin ' + env.BRANCH_NAME
+        sh 'git push'
     }
     stage('Build') {
         milestone()
