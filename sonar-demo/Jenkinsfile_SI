@@ -43,7 +43,7 @@ node('node_1') {
 
     try{
       echo "Deploying sonar-demo to SI Started"
-      sh 'ssh -q apps@103.129.98.172 /home/apps/devops/scripts/deployFromNexus.ksh sonar-demo 0.0.6 tgz'
+      sh 'ssh -q StrictHostKeyChecking=no apps@103.129.98.172 /home/apps/devops/scripts/deployFromNexus.ksh sonar-demo 0.0.6 tgz'
 
     }catch (err){
       echo "[Failure] failed to deploy sonar-demo application in SI"
