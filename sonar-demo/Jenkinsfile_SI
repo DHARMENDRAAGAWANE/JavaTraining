@@ -19,12 +19,27 @@ properties(
 )
 node('node_1') {
 
-  def userInput = input(
- id: 'userInput', message: 'Let\'s promote?', parameters: [
- [$class: 'TextParameterDefinition', defaultValue: 'latest', description: 'Version', name: 'release'],
-])
+ // Variables for input
+                    def inputVersion
+                    def inputTest
 
+                    // Get the input
+                    def userInput = input(
+                            id: 'userInput', message: 'Lets Promote?',
+                            parameters: [
 
+                                    string(defaultValue: 'None',
+                                            description: 'Verson to Promote',
+                                            name: 'Version'),
+                            ])
+
+                    // Save to variables. Default to empty string if not found.
+                    inputVersion = userInput.Version?:''
+                    
+
+                    // Echo to console
+                    echo("Version To Promote: ${inputVersion}")
+                    
 
 
     stage('Checkout') {
@@ -43,7 +58,7 @@ node('node_1') {
 
     try{
       echo "Deploying sonar-demo to SI Started"
-      sh 'ssh -q apps@103.129.98.172 /home/apps/devops/scripts/deployFromNexus.ksh sonar-demo 0.0.6 tgz'
+      sh 'ssh -q apps@103.129.98.172 /home/apps/devops/scripts/deployFromNexus.ksh sonar-demo ' + ${inputVersion}+' tgz'
 
     }catch (err){
       echo "[Failure] failed to deploy sonar-demo application in SI"
