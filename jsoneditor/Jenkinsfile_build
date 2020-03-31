@@ -12,7 +12,7 @@ properties(
         )
     ]
 )
-node {
+node('node_1') {
     stage('Checkout') {
         //disable to recycle workspace data to save time/bandwidth
         deleteDir()
