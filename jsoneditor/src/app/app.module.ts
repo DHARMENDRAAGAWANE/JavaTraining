@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { JsoneditorComponent } from './jsoneditor/jsoneditor.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatNativeDateModule} from '@angular/material';
+//import {MatNativeDateModule} from '@angular/material';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {DemoMaterialModule} from './core/material-module';
+//import {DemoMaterialModule} from './core/material-module';
 import { XmlviewerComponent } from './xmlviewer/xmlviewer.component';
 
 
@@ -27,8 +27,8 @@ import { XmlviewerComponent } from './xmlviewer/xmlviewer.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    DemoMaterialModule,
-    MatNativeDateModule,
+  //  DemoMaterialModule,
+   // MatNativeDateModule,
     ReactiveFormsModule,
   ],
   providers: [],
