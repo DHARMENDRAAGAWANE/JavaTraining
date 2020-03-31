@@ -56,26 +56,34 @@ node {
 
     }
 
+    stage ("Versioning"){
+        dir("jsoneditor"){
+            sh 'npm version patch'
+            sh  'git add package.json package-lock.json'
+            sh  'git commit -m "version number increased"'
+        }
+        sh 'git push origin HEAD:' + env.BRANCH_NAME
+    }
     stage('Build') {
         milestone()
 dir("jsoneditor"){        
-sh 'ng build --prod'
+sh 'ng build --prod --aot  --progress=false'
 }    }
 
-  stage('Archive') {
+    stage('Archive') {
         dir("jsoneditor"){     
         sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
         archive 'dist.tar.gz'
         }
 
-   }
-
-   stage('Nexus Upload'){
-      dir("jsoneditor"){        
+    }
+  
+  stage('nexus upload'){
+     dir("jsoneditor"){     
         sh 'npm publish'
-       } 
-
-   }
+        }
+    
+  }
 
    
 }
