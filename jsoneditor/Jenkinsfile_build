@@ -33,16 +33,15 @@ node {
         }
     }
 
-    //stage('Test') {
+     stage('Test') {
  //withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-//withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-  //dir("jsoneditor"){       
- //sh 'ng test --watch=false --browsers=ChromeHeadless'
- // }
-      //  }
+withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
+  dir("jsoneditor"){       
+ sh 'ng test --watch=false --browsers=ChromeHeadless'
+  }
+        }
         //junit '**/test-results.xml'
-    //}
-
+    }
     //stage('Lint') {
       // dir("jsoneditor"){
         //sh 'ng lint'
