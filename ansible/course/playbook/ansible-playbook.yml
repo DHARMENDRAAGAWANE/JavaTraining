@@ -1,0 +1,10 @@
+-   name:   preconfigre
+    hosts: localhost
+    tasks:
+    - copy:
+        src: "../master.gitconfig" 
+        dest: "~/.gitconfig"
+    - homebrew:
+         name: "bat"
+         state: "latest"
+             

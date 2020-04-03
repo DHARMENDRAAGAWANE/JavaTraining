@@ -9,7 +9,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 //import {MatNativeDateModule} from '@angular/material';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-//import {DemoMaterialModule} from './core/material-module';
+import {MaterialModule} from './core/material-module';
 import { XmlviewerComponent } from './xmlviewer/xmlviewer.component';
 
 
@@ -27,7 +27,7 @@ import { XmlviewerComponent } from './xmlviewer/xmlviewer.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-  //  DemoMaterialModule,
+    MaterialModule,
    // MatNativeDateModule,
     ReactiveFormsModule,
   ],
