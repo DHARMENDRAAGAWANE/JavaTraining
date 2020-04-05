@@ -1,0 +1,3 @@
+service ngnix status
+
+wget -qO- localhost // q for quite O for output to console
