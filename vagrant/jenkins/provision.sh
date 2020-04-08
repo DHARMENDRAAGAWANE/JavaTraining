@@ -22,6 +22,10 @@ sudo service jenkins start
 
 sleep 1m
 
+ehco "installing nodejs"
+curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+sudo apt-get install -y nodejs > /dev/null 2>&1
+
 echo "Installing Jenkins Plugins"
 JENKINSPWD=$(sudo cat /var/lib/jenkins/secrets/initialAdminPassword)
 echo $JENKINSPWD
