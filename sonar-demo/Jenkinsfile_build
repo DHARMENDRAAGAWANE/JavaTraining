@@ -79,11 +79,11 @@ sh 'ng build --prod --aot  --progress=false'
 
     }
   
-  stage('nexus upload'){
-     dir("sonar-demo"){     
-        sh 'npm publish'
-        }
+  //stage('nexus upload'){
+    // dir("sonar-demo"){     
+      //  sh 'npm publish'
+        //}
     
-  }
+  //}
 
 }
