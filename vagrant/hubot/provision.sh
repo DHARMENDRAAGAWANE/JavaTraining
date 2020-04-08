@@ -17,6 +17,10 @@ apt-get -y install nodejs npm
 
 command -v hubot &>/dev/null || {
 
-npm install -g hubot coffee-script
+sudo npm install -g yo generator-hubot coffeescript
 
+}
+
+dpkg -s  libicu-dev &>/dev/null || {
+  apt-get -y install libexpat1-dev libicu-dev
 }
