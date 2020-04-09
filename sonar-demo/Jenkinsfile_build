@@ -12,7 +12,8 @@ properties(
         )
     ]
 )
-node('node_1') {
+//node('node_1') {
+node(){
     stage('Checkout') {
         //disable to recycle workspace data to save time/bandwidth
         deleteDir()
@@ -33,15 +34,15 @@ node('node_1') {
         }
     }
 
-    stage('Test') {
+  //  stage('Test') {
  //withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-  dir("sonar-demo"){       
- sh 'ng test --watch=false --browsers=ChromeHeadless'
-  }
-        }
+//withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
+  //dir("sonar-demo"){       
+ //sh 'ng test --watch=false --browsers=ChromeHeadless'
+  //}
+    //    }
         //junit '**/test-results.xml'
-    }
+    //}
 
     stage('Lint') {
        dir("sonar-demo"){
@@ -78,11 +79,11 @@ sh 'ng build --prod --aot  --progress=false'
 
     }
   
-  stage('nexus upload'){
-     dir("sonar-demo"){     
-        sh 'npm publish'
-        }
+  //stage('nexus upload'){
+    // dir("sonar-demo"){     
+      //  sh 'npm publish'
+        //}
     
-  }
+  //}
 
 }
