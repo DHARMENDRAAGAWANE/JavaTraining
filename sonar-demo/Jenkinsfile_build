@@ -27,27 +27,27 @@ node(){
 
     stage('NPM Install') {
         withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-		dir("sonar-demo"){
-	    //sh 'ls -rt'
-            sh 'npm install'
-		}
+		    dir("sonar-demo"){
+	            //sh 'ls -rt'
+                sh 'npm install'
+		    }
         }
     }
 
     stage('Test') {
- //withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-  dir("sonar-demo"){       
- sh 'ng test --watch=false --code-coverage --browsers ChromeHeadless'
- }
-        }
+        //withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
+            withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
+                dir("sonar-demo"){       
+                    sh 'ng test --watch=false --code-coverage --browsers ChromeHeadless'
+                }
+            }
         //junit '**/test-results.xml'
-    //}
+    }
 
     stage('Lint') {
        dir("sonar-demo"){
-        sh 'ng lint'
-}
+            sh 'ng lint'
+        }
     }
 
     stage("sonarqube"){
@@ -65,25 +65,27 @@ withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
         }
         sh 'git push origin HEAD:' + env.BRANCH_NAME
     }
+
     stage('Build') {
         milestone()
-dir("sonar-demo"){        
-sh 'ng build --prod --aot  --progress=false'
-}    }
+        dir("sonar-demo"){        
+            sh 'ng build --prod --aot  --progress=false'
+        }       
+    }
 
     stage('Archive') {
         dir("sonar-demo"){     
-        sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
-        archive 'dist.tar.gz'
+            sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
+            archive 'dist.tar.gz'
         }
 
     }
   
-  //stage('nexus upload'){
-    // dir("sonar-demo"){     
-      //  sh 'npm publish'
+    //stage('nexus upload'){
+        // dir("sonar-demo"){     
+            //  sh 'npm publish'
         //}
     
-  //}
+    //}
 
 }
