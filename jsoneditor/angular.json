@@ -123,7 +123,7 @@
       }
     }
   },
-  "defaultProject": "sonar-demo",
+  "defaultProject": "jsoneditor",
   "cli": {
     "analytics": "85116cca-09a3-4f71-83e0-c23d0cdd7131"
   }

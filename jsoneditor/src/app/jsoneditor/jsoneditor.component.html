@@ -4,7 +4,7 @@
      <mat-icon  matTooltip="format the Json" class="example-icon" (click)="showFormated()">view_headline</mat-icon>
      <mat-icon  matTooltip="remove white space" class="example-icon" (click)="showUnformated()">view_module</mat-icon>
     <span class="example-spacer"></span>
-    <mat-icon  matTooltip="tree view" class="example-icon" (click)="showTree()">arrow_right_alt</mat-icon>
+    <mat-icon  matTooltip="tree view" class="example-icon" id="showTree" (click)="showTree()">arrow_right_alt</mat-icon>
 
     <input #fileUpload type="file" (click)="fileUpload.value = null"(change)="importFile($event)" style="display:none"
 accept="image/*">
