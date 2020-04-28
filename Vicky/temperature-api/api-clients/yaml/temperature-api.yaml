@@ -1,0 +1,71 @@
+swagger: "2.0"
+info:
+  description: "Conversion fahrenheit to celsius and celsius to farenheit."
+  version: "1.0.0"
+  title: "Temperature conversion"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "vicky.gupta@mindtraits.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "virtserver.swaggerhub.com"
+tags:
+- name: "conversion"
+  description: "Convert celsius to farenheit and fahrenheit to celsius"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+schemes:
+- "https"
+- "http"
+paths:
+  /convertFahrenheitToCelsius:
+    get:
+      tags:
+      - "conversion"
+      summary: "Convert fahrenheit to celsius"
+      description: "Convert fahrenheit to celsius"
+      operationId: "convertFahrenheit"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "fahrenheit"
+        in: "query"
+        description: "Fahrenheit Value."
+        required: true
+        type: "integer"
+        default: 100
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "integer"
+            example: 37.7778
+        400:
+          description: "Invalid status value"
+          
+  /convertCelsiusToFahrenheit:
+    get:
+      tags:
+      - "conversion"
+      summary: "Convert celsius to fahrenheit"
+      description: "Convert celsius to fahrenheit"
+      operationId: "convertCelsius"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "celsius"
+        in: "query"
+        description: "Celsius Value."
+        required: true
+        type: "integer"
+        default: 100
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "integer"
+            example: 212
+        400:
+          description: "Invalid status value"
