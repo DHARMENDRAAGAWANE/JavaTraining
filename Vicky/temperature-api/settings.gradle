@@ -1,0 +1,3 @@
+rootProject.name = 'temperature-api'
+include 'api-clients'
+project(':api-clients').projectDir = new File(settingsDir, './api-clients')
