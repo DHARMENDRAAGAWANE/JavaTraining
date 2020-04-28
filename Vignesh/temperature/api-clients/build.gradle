@@ -1,0 +1,37 @@
+plugins {
+   id 'java'
+   id "org.hidetake.swagger.generator" version "2.18.1"
+}
+repositories {
+		mavenCentral()
+}
+
+dependencies {
+ 	compile('org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+    
+   	compile 'io.swagger:swagger-annotations:1.5.10'
+    swaggerCodegen 'io.swagger:swagger-codegen-cli:2.2.3'
+    
+}
+swaggerSources {
+        
+     temperatureconversion {
+        inputFile = file("$projectDir/yaml/temperature.yaml")
+
+        code {	
+            language = 'spring'
+            configFile = file('temperature.json')
+            components = ['models','apis']
+           // dependsOn validation
+        }
+    }
+    
+}
+
+
+
+compileJava.dependsOn swaggerSources.temperatureconversion.code
+sourceSets.main.java.srcDir "${swaggerSources.temperatureconversion.code.outputDir}/src/main/java"
+sourceSets.main.resources.srcDir "${swaggerSources.temperatureconversion.code.outputDir}/src/main/resources"

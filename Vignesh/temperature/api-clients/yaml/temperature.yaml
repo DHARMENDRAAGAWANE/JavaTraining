@@ -1,0 +1,75 @@
+---
+swagger: "2.0"
+info:
+  description: Conversion fahrenheit to celsius and celsius to farenheit
+  version: 1.0.0
+  title: Temperature conversion
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: vignesh.v@mindtraits.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /Mindtraits/user/1.0.0
+tags:
+- name: conversion
+  description: Convert celsius to farenheit and fahrenheit to celsius
+  externalDocs:
+    description: Find out more
+    url: http://swagger.io
+schemes:
+- https
+- http
+paths:
+  /convertCelsius:
+    get:
+      tags:
+      - conversion
+      summary: Convert fahrenheit to celsius
+      description: Convert fahrenheit to celsius
+      operationId: convertFahrenheitToCelsius
+      produces:
+      - application/json
+      parameters:
+      - name: fahrenheit
+        in: query
+        description: fahrenheit Value
+        required: false
+        type: number
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: number
+            example: 37.7778
+        "400":
+          description: Invalid Status Value
+        "500":
+          description: Internal Server Error
+  /convertFahrenheit:
+    get:
+      tags:
+      - conversion
+      summary: Convert celsius to fahrenheit
+      description: Convert celsius to fahrenheit
+      operationId: convertCelsiusToFahrenheit
+      produces:
+      - application/json
+      parameters:
+      - name: celsius
+        in: query
+        description: celsius Value
+        required: false
+        type: number
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: number
+            example: 212
+        "400":
+          description: Invalid Status Value
+        "500":
+          description: Internal Server Error
+definitions: {}
